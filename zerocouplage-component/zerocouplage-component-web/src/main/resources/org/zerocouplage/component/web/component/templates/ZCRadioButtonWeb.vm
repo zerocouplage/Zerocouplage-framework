@@ -1,0 +1,7 @@
+#if($checked=="true")
+<input type="radio" name="$name"  value="$value" checked="checked" /> <span  style="color: $color ; height: $height; width: $width;">$text </span>
+#end
+#if($checked=="false")
+<input type="radio" name="$name"  value="$value" /> <span  style="color: $color ; height: $height; width: $width;">$text </span>
+#end
+

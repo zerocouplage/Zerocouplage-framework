@@ -1,0 +1,148 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.zerocouplage.rolemanager.api</groupId>
+	<artifactId>zerocouplage-rolemanager-api</artifactId>
+	<packaging>jar</packaging>
+	<version>2.0.0-SNAPSHOT</version>
+	<name>zerocouplage-rolemanager-api Maven Webapp</name>
+	<url>http://maven.apache.org</url>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>
+			<scope>test</scope>
+		</dependency>
+		
+	<!--  	<dependency>
+			<groupId>orbac</groupId>
+			<artifactId>orbac</artifactId>
+			<version>1.3.0</version> 
+		</dependency>  -->
+		<dependency>
+	<groupId>org.antlr</groupId>
+	<artifactId>antlrworks</artifactId>
+	<version>1.5</version>
+</dependency>
+
+		<dependency>
+	<groupId>org.jdesktop</groupId>
+	<artifactId>appframework</artifactId>
+	<version>1.0.3</version>
+</dependency>
+
+		<dependency>
+			<groupId>bsh</groupId>
+			<artifactId>bsh</artifactId>
+			<version>2.0b4</version> 
+		</dependency>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.0.1</version> 
+		</dependency>
+		
+		
+		<dependency>
+	<groupId>com.ibm.icu</groupId>
+	<artifactId>icu4j</artifactId>
+	<version>3.4.4</version>
+</dependency>
+		
+		
+		
+		<dependency>
+	<groupId>com.hp.hpl.jena</groupId>
+	<artifactId>iri</artifactId>
+	<version>0.8</version>
+</dependency>
+
+		
+		
+		
+		
+		
+		<dependency>
+	<groupId>com.hp.hpl.jena</groupId>
+	<artifactId>jena</artifactId>
+	<version>2.6.4</version>
+</dependency>
+		
+		
+		
+		
+		
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.13</version> 
+		</dependency>
+		 
+		 
+		 
+		 
+		 <dependency>
+	<groupId>mysql</groupId>
+	<artifactId>mysql-connector-java</artifactId>
+	<version>5.1.22</version>
+</dependency>
+		 
+		 
+		 
+		  
+		<dependency>
+	<groupId>org.sonatype.tycho</groupId>
+	<artifactId>org.eclipse.osgi</artifactId>
+	<version>3.5.2.R35x_v20100126</version>
+</dependency>
+
+<!-- 		<dependency> -->
+<!-- 			<groupId>prova</groupId> -->
+<!-- 			<artifactId>prova</artifactId> -->
+<!-- 			<version>1.0.0</version>  -->
+<!-- 		</dependency> -->
+	<dependency>
+	<groupId>org.slf4j</groupId>
+	<artifactId>slf4j-api</artifactId>
+	<version>1.5.8</version>
+</dependency>
+
+	<dependency>
+	<groupId>org.slf4j</groupId>
+	<artifactId>slf4j-log4j12</artifactId>
+	<version>1.5.8</version>
+</dependency>
+
+ <!--   <dependency>
+			<groupId>syntax</groupId>
+			<artifactId>syntax</artifactId>
+			<version>1.0.0</version> 
+		</dependency> -->
+
+
+		<dependency>
+	<groupId>org.swinglabs</groupId>
+	<artifactId>swing-worker</artifactId>
+	<version>1.1</version>
+</dependency>
+
+		
+		<dependency>
+	<groupId>xerces</groupId>
+	<artifactId>xercesImpl</artifactId>
+	<version>2.7.1</version>
+</dependency>
+
+	</dependencies>
+
+	<scm>
+		<connection>scm:svn:http://zerocouplage.googlecode.com/svn/trunk/code%20source/zerocouplage-2.0.0/</connection>
+		<developerConnection>scm:svn:http://zerocouplage.googlecode.com/svn/trunk/code%20source/zerocouplage-2.0.0/</developerConnection>
+		<tag>HEAD</tag>
+		<url>http://zerocouplage.googlecode.com/svn/trunk/code%20source/zerocouplage-2.0.0/</url>
+	</scm>
+
+</project>

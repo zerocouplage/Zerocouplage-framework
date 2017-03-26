@@ -1,0 +1,70 @@
+
+<xml  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="zcouplage.xsd"  >
+<zcouplage     context="Web"     DevModes="prod" >
+      
+              
+ <!--  mapping   package  -->  
+   <mapping-view-bean>
+       <mapping    isSame="false"    ref-bean="Beanin"    ref-view="Viewin"  >
+            <key    beanProperty="fistname"     viewProperty="login"        />
+            <key    beanProperty="lastname"     viewProperty="password"        />
+        </mapping>
+       
+ </mapping-view-bean>     
+            
+     
+ <!--validators package -->      
+    <validators-package>
+         <validator   name="valForm1"    valueTarget="valider.xml"    typeVal="file"      />
+         <validator   name="valForm2"    valueTarget="org.zerocouplage.valider"  typeVal="class"      />
+  </validators-package>
+  
+   
+ <!--beans-package -->
+    <beans-package>
+       <bean   name="beanin"     class="beanoutput.java" />
+     
+       
+   </beans-package>
+
+  
+
+  <!-- Business   package--> 
+  <business-package >
+     
+       <business name="proc1"   class="zerocouplage.test.web.ProcessForm"    method="process" >
+            
+            <bean-ref       ref-bean="beanin" />
+            <validator-ref  ref-val="valForm" />
+            <view-results>   
+		        <view-result    ref-view="viewR"     name="succes"  bean-result="beanresult" />
+            </view-results>
+       
+       </business>     
+       <business name="proc2"   class="zerocouplage.test.web.ProcessForm2"    method="process2" >
+            
+            <bean-ref       ref-bean="beanin" />
+            <validator-ref  ref-val="valForm1" />
+            <view-results>   
+		        <view-result    ref-view="viewR"     name="succes"  bean-result="beanresult" />
+            </view-results>
+       
+       </business>  
+     
+  </business-package> 
+
+
+<!-- Views   package -->
+    <views-package>
+        <view name="viewR"   target="validate1.jsp"  method="1"   methodError="processError1"  />
+        <view name="view2"   target="validate2.jsp"  method="2"   methodError="processError2"  />
+        <view name="view3"   target="validate3.jsp"  method="3"   methodError="processError3"  />
+    </views-package>
+
+<!-- Add  packages  here-->
+
+
+</zcouplage>
+
+</xml>
+ 

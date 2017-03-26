@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bean-validators>
+    <global-message>Some fields are required</global-message>
+		<bean-validator>
+		    
+			<field name="nom" constraint="[A-Z]+">
+				<message>Firstname is invalid</message>
+			</field>
+			
+
+			
+			
+			
+	</bean-validator>
+</bean-validators>

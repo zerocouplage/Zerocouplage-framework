@@ -1,0 +1,5 @@
+<ul $style>
+	#foreach( $li in $listli )
+		<li $action $style>$value</li>
+	#end
+</ul>

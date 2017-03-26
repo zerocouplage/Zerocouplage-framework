@@ -1,0 +1,19 @@
+<table style="color: $color ; height: $height; width: $width;">
+  <thead>
+  <tr>
+    #foreach( $hval in $headdata )
+		<th>$hval</th>
+	#end
+  </tr>
+  </thead>
+  
+  <tbody>
+  #foreach( $line in  $coredata.length )
+	<tr>
+	#foreach( $bval in $coredata[$line].length )
+		<td>$bval</td>
+	#end
+	</tr>
+   #end
+  </tbody>
+</table>

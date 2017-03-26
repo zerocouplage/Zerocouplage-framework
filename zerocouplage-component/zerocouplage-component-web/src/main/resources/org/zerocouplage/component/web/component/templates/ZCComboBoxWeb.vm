@@ -1,0 +1,5 @@
+<select name="$name" style="color: $color ; height: $height; width: $width;">
+	#foreach( $val in $items )
+		$val.display()
+	#end
+</select>

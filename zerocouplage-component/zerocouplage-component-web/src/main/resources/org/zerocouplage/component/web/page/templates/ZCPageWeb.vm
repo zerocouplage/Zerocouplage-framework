@@ -1,0 +1,21 @@
+<html>
+	<head>
+		<title>
+		$title
+		</title>
+		 <script>
+    function sendForm(form,dist){
+    var formname = form.name;
+	document.getElementsByName(formname)[0].setAttribute("action",dist);
+	document.forms[formname].submit();
+    }
+        </script>
+	</head>
+	<body>
+		#foreach( $layoutVar in $layout )
+			$layoutVar.body
+		#end
+		
+		
+	</body>
+</html>

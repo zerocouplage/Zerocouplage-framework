@@ -1,0 +1,1 @@
+<input type="file" name="$name" accept="$filter"  style="color: $color ; height: $height; width: $width;"/>

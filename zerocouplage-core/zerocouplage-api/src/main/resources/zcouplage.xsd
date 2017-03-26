@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"    >
+
+
+<!-- Partie declaration  des  element -->
+
+       <xs:complexType  name="valType">
+              <xs:attribute name="ref-val" />
+       </xs:complexType>
+       
+               
+              <xs:complexType  name="bean-refType">
+              <xs:attribute name="ref-bean" />
+       </xs:complexType>
+       
+       
+       
+    <xs:complexType  name="vueType">
+    
+    
+     <xs:attribute    name="id-view"     type="xs:string"      use="required"  />
+     <xs:attribute     name="target"     type="xs:string"      use="required"/>
+     <xs:attribute  name="method"        type="xs:string"      use="optional"  /> 
+     <xs:attribute  name="method-error"  type="xs:string"      use="optional"   />
+    
+    </xs:complexType>
+
+      <xs:complexType    name="package-vueType"  >
+          <xs:sequence>
+             <xs:element  name="view"   type="vueType"   maxOccurs="unbounded" /> 
+      </xs:sequence>
+   </xs:complexType>
+   
+   
+     <xs:complexType    name="keyType">
+     
+          <xs:attribute       name="bean-property"        type="xs:string"           use="required"/>   
+          <xs:attribute       name="view-property"           type="xs:string"  use="required"  />  
+          <xs:attribute       name="format" type="xs:string"  use="optional"/> 
+     
+     </xs:complexType>
+   
+   
+   
+   <xs:complexType   name="mappingType">
+          <xs:sequence>
+                <xs:element    name="key"   type="keyType"  minOccurs="1" maxOccurs="unbounded"     />
+          </xs:sequence>
+          
+    <xs:attribute    name="ref-bean"   type="xs:string"   />
+    <xs:attribute    name="ref-view"    type="xs:string"  />   
+   </xs:complexType>
+   <xs:complexType  name="mappingsType">
+      <xs:sequence>
+        <xs:element  name="mapping"   type="mappingType"   minOccurs="1"    maxOccurs="unbounded"/>   
+     </xs:sequence>   
+   </xs:complexType>
+
+ 
+    
+    
+     <xs:complexType    name="BeanType" >
+           <xs:attributeGroup  ref="attribute-beans" />
+     </xs:complexType>
+
+     <xs:complexType  name="package-beanType" >
+        <xs:sequence>
+		   <xs:element  name="bean" type="BeanType"   minOccurs="1"  maxOccurs="unbounded"  />
+        </xs:sequence>
+     </xs:complexType>
+
+     <xs:complexType   name="package-buinessType"  >
+          <xs:sequence>
+             <xs:element  name="business"  type="buinessType"  minOccurs="1" maxOccurs="unbounded"  />
+          </xs:sequence>
+    </xs:complexType>
+
+
+
+     <xs:complexType name="view-resultType">
+          <xs:attribute  name="ref-view"  type="xs:string"     />
+          <xs:attribute  name="name"   type="xs:string"        />
+		  <xs:attribute  name="bean-result"   type="xs:string" />
+      </xs:complexType>
+
+  <xs:complexType   name="view-resultsType">
+  <xs:sequence>
+   <xs:element name="view-result" type="view-resultType"  minOccurs="1"   maxOccurs="unbounded"  />
+  </xs:sequence>
+  </xs:complexType>
+
+
+     <xs:complexType name="validatorType">
+        <xs:attribute  name="id-val" type="xs:string"     use="required"/>
+        <xs:attribute    name="value"    type="xs:string"      use="required" />
+        <xs:attribute   name="type-val"  type="xs:string"      use="required" />
+    </xs:complexType>
+
+     <xs:complexType name="package-validatorsType">
+       <xs:sequence>
+        <xs:element  name="validator"  type="validatorType"  minOccurs="1"  maxOccurs="unbounded"  />
+       </xs:sequence>
+    </xs:complexType>
+
+
+    <xs:complexType name="buinessType"  >
+       <xs:sequence>
+           <xs:element  name="bean-ref" type="bean-refType" /> 
+           <xs:element  name="validator-ref"  type="valType"  maxOccurs="unbounded" /> 
+           <xs:element  name="view-results"   type="view-resultsType" minOccurs="1"  />
+       </xs:sequence>
+   <xs:attributeGroup    ref="attribute-buiness" /> 
+     </xs:complexType>
+
+
+
+
+
+
+
+
+
+<!-- declaration des  groupes d'attributs -->
+
+
+<xs:attributeGroup  name="attribute-beans">
+
+   <xs:attribute name="id-bean" type="xs:string" use="required" />
+   <xs:attribute  name="class" type="xs:string" use="required" />
+
+</xs:attributeGroup>
+
+  <xs:attributeGroup name="attribute-buiness">
+  <xs:attribute name="name"     type="xs:string"  use="required" />
+  <xs:attribute name="class"    type="xs:string"  use="required" />
+  <xs:attribute name="method"    type="xs:string"  use="required" />
+ </xs:attributeGroup>
+
+<!-- partie   declaration du fichier zcouplage.xml -->
+
+
+
+
+<xs:complexType   name="zcouplageType"  >
+
+  
+    <xs:sequence>
+    <xs:element   name="mapping-view-bean"    type="mappingsType"   />
+    <xs:element   name="package-validators"  type="package-validatorsType"   />
+    <xs:element   name="beans-package"   type="package-beanType"  minOccurs="1"  /> 
+    <xs:element   name="business-package" type="package-buinessType"  minOccurs="1" />
+    <xs:element   name="views-package"       type="package-vueType"  />
+    </xs:sequence>
+ <xs:attribute  name="context" >
+  
+  <xs:simpleType>
+     <xs:restriction   base="xs:string" >
+         <xs:enumeration   value="Web" />
+         <xs:enumeration   value="Desktop" />
+     </xs:restriction>
+     </xs:simpleType>
+ </xs:attribute>
+ 
+ <xs:attribute  name="DevModes">
+  <xs:simpleType>
+      <xs:restriction   base="xs:string">
+      
+        <xs:enumeration   value="prod"   /> 
+        <xs:enumeration   value="Dev"    />   
+      </xs:restriction>
+      </xs:simpleType>  
+ </xs:attribute>
+ 
+ </xs:complexType>
+  
+<xs:element   name="xml"  >
+  <xs:complexType>
+    <xs:sequence>
+     <xs:element name="zcouplage"   type="zcouplageType"     />
+    </xs:sequence>
+   </xs:complexType>
+</xs:element>
+</xs:schema> 

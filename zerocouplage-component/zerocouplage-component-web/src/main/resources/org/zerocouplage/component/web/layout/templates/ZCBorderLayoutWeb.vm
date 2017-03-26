@@ -1,0 +1,46 @@
+<div style="background-color: $color ; height: $height; width: $width;" >
+#if($isForm=="true")
+<form name=$nameForm method="post" action="" >
+#end
+<input type="hidden" name="_ZC_SOURCE_VIEW_NAME" value="$ParentName">
+<table   border="0">
+
+	<tr>
+		<td  colspan="3">
+			#foreach( $component in $ListComponentNorth )
+				$component.display()
+			#end
+		</td>
+	</tr>
+	
+	<tr>
+		<td>
+			#foreach( $component in $ListComponentEast )
+				$component.display()
+			#end
+		</td>
+		<td>
+			#foreach( $component in $ListComponentCenter )
+				$component.display()
+			#end
+		</td>
+		<td>
+			#foreach( $component in $ListComponentWest )
+				$component.display()
+			#end
+		</td>
+	</tr>
+	
+	<tr>
+		<td colspan="3">
+			#foreach( $component in $ListComponentSouth )
+				$component.display()
+			#end
+		</td>
+	</tr>
+
+</table>
+#if($isForm=="true")
+</form>
+#end
+</div>

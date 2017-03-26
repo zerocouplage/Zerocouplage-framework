@@ -1,0 +1,28 @@
+<div style="background-color: $color ; height: $height; width: $width;" >
+#if($isForm=="true")
+<form name=$nameForm method="post" action="" >
+#end
+<input type="hidden" name="_ZC_SOURCE_VIEW_NAME" value="$ParentName">
+<table border="0" >
+#set($Rows = $gridObject.getRows())
+#set($Cols = $gridObject.getCols())
+#set($rangeCols = [0..$Cols])
+#set($rangeRows = [0..$Rows])
+#set( $i =0 )
+   		#foreach( $row in $rangeRows )
+			<tr>   
+				
+		   		#foreach( $col in $rangeCols )
+		   			
+				    <td>$component.get($i).display()</td>
+				    #set( $i = $i + 1) 
+				   
+				#end
+				
+			</tr>
+		#end
+</table>
+#if($isForm=="true")
+</form>
+#end
+</div>

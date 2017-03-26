@@ -1,0 +1,1 @@
+<label style="color: $color ; height: $height; width: $width;" >$label</label>

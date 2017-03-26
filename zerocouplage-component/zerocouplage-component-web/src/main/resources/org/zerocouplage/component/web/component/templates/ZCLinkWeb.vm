@@ -1,0 +1,1 @@
+<a href=$action name="$name"   style="color: $color ;">$text</a>

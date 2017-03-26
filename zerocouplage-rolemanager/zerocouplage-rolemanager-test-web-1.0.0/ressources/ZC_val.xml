@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bean-validators>
+    <global-message>certains champs sont obligatoires</global-message>
+	<bean-validator id="" class="">
+		
+		<field name="action" constraint="[a-zA-Z]+">
+			<message>Action is invalid</message>
+		</field>
+		<field name="prenom" constraint="[a-zA-Z]+">
+			<message>Lastname is invalid</message>
+		</field>
+		
+	</bean-validator>
+</bean-validators>

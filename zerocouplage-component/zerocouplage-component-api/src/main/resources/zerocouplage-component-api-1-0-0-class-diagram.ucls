@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.1.2" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
+  associations="true" dependencies="false" nesting-relationships="true">  
+  <interface id="1" language="java" name="org.zerocouplage.component.api.component.ZCButton" 
+    project="zerocouplage-component-api-1.0.0" 
+    file="/zerocouplage-component-api-1.0.0/src/main/java/org/zerocouplage/component/api/component/ZCButton.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="135" width="193" x="1799" y="266"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </interface>  
+  <interface id="2" language="java" name="org.zerocouplage.component.api.component.ZCComponent" 
+    project="zerocouplage-component-api-1.0.0" 
+    file="/zerocouplage-component-api-1.0.0/src/main/java/org/zerocouplage/component/api/component/ZCComponent.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="193" x="1333" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </interface>  
+  <interface id="3" language="java" name="org.zerocouplage.component.api.component.ZCCheckBox" 
+    project="zerocouplage-component-api-1.0.0" 
+    file="/zerocouplage-component-api-1.0.0/src/main/java/org/zerocouplage/component/api/component/ZCCheckBox.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="135" width="193" x="447" y="266"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </interface>  
+  <interface id="4" language="java" name="org.zerocouplage.component.api.component.ZCRadioButton" 
+    project="zerocouplage-component-api-1.0.0" 
+    file="/zerocouplage-component-api-1.0.0/src/main/java/org/zerocouplage/component/api/component/ZCRadioButton.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="171" width="193" x="2032" y="266"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </interface>  
+  <interface id="5" language="java" name="org.zerocouplage.component.api.component.ZCTextField" 
+    project="zerocouplage-component-api-1.0.0" 
+    file="/zerocouplage-component-api-1.0.0/src/main/java/org/zerocouplage/component/api/component/ZCTextField.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="193" x="1100" y="266"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </interface>  
+  <interface id="6" language="java" name="org.zerocouplage.component.api.component.ZCComboBox" 
+    project="zerocouplage-component-api-1.0.0" 
+    file="/zerocouplage-component-api-1.0.0/src/main/java/org/zerocouplage/component/api/component/ZCComboBox.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="135" width="193" x="1333" y="266"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </interface>  
+  <interface id="7" language="java" name="org.zerocouplage.component.api.component.ZCLabel" 
+    project="zerocouplage-component-api-1.0.0" 
+    file="/zerocouplage-component-api-1.0.0/src/main/java/org/zerocouplage/component/api/component/ZCLabel.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="193" x="1566" y="266"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </interface>  
+  <interface id="8" language="java" name="org.zerocouplage.component.api.config.ZCCompConfig" 
+    project="zerocouplage-component-api-1.0.0" 
+    file="/zerocouplage-component-api-1.0.0/src/main/java/org/zerocouplage/component/api/config/ZCCompConfig.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="189" width="199" x="455" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </interface>  
+  <interface id="9" language="java" name="org.zerocouplage.component.api.config.ZCCompLoader" 
+    project="zerocouplage-component-api-1.0.0" 
+    file="/zerocouplage-component-api-1.0.0/src/main/java/org/zerocouplage/component/api/config/ZCCompLoader.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="780" y="88"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </interface>  
+  <interface id="10" language="java" name="org.zerocouplage.component.api.layout.ZCLayout" 
+    project="zerocouplage-component-api-1.0.0" 
+    file="/zerocouplage-component-api-1.0.0/src/main/java/org/zerocouplage/component/api/layout/ZCLayout.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="63" width="173" x="680" y="266"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </interface>  
+  <interface id="11" language="java" name="org.zerocouplage.component.api.layout.ZCBorderLayout" 
+    project="zerocouplage-component-api-1.0.0" 
+    file="/zerocouplage-component-api-1.0.0/src/main/java/org/zerocouplage/component/api/layout/ZCBorderLayout.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="243" width="226" x="917" y="477"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </interface>  
+  <interface id="12" language="java" name="org.zerocouplage.component.api.layout.ZCFlowLayout" 
+    project="zerocouplage-component-api-1.0.0" 
+    file="/zerocouplage-component-api-1.0.0/src/main/java/org/zerocouplage/component/api/layout/ZCFlowLayout.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="135" width="197" x="443" y="477"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </interface>  
+  <interface id="13" language="java" name="org.zerocouplage.component.api.layout.ZCGridBagLayout" 
+    project="zerocouplage-component-api-1.0.0" 
+    file="/zerocouplage-component-api-1.0.0/src/main/java/org/zerocouplage/component/api/layout/ZCGridBagLayout.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="197" x="680" y="477"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </interface>  
+  <interface id="14" language="java" name="org.zerocouplage.component.api.page.ZCPage" 
+    project="zerocouplage-component-api-1.0.0" 
+    file="/zerocouplage-component-api-1.0.0/src/main/java/org/zerocouplage/component/api/page/ZCPage.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="135" width="167" x="893" y="266"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </interface>  
+  <interface id="15" language="java" name="org.zerocouplage.component.api.style.IZCStyle" 
+    project="zerocouplage-component-api-1.0.0" 
+    file="/zerocouplage-component-api-1.0.0/src/main/java/org/zerocouplage/component/api/style/IZCStyle.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="988" y="104"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </interface>  
+  <interface id="16" language="java" name="org.zerocouplage.component.api.view.ZCView" 
+    project="zerocouplage-component-api-1.0.0" 
+    file="/zerocouplage-component-api-1.0.0/src/main/java/org/zerocouplage/component/api/view/ZCView.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1196" y="80"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </interface>  
+  <interface id="17" language="java" name="org.zerocouplage.component.api.config.IZCTemplateConfig" 
+    project="zerocouplage-component-api-1.0.0" 
+    file="/zerocouplage-component-api-1.0.0/src/main/java/org/zerocouplage/component/api/config/IZCTemplateConfig.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="331" y="87"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </interface>  
+  <interface id="18" language="java" name="org.zerocouplage.component.api.config.IZCTemplateLoader" 
+    project="zerocouplage-component-api-1.0.0" 
+    file="/zerocouplage-component-api-1.0.0/src/main/java/org/zerocouplage/component/api/config/IZCTemplateLoader.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="129" y="78"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </interface>  
+  <generalization id="19">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="2"/>  
+  </generalization>  
+  <generalization id="20">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="2"/>  
+  </generalization>  
+  <generalization id="21">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="2"/>  
+  </generalization>  
+  <generalization id="22">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="10"/>  
+  </generalization>  
+  <generalization id="23">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="10"/>  
+  </generalization>  
+  <generalization id="24">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="10"/>  
+  </generalization>  
+  <generalization id="25">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="2"/>  
+  </generalization>  
+  <generalization id="26">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="2"/>  
+  </generalization>  
+  <generalization id="27">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="2"/>  
+  </generalization>  
+  <generalization id="28">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="2"/>  
+  </generalization>  
+  <generalization id="29">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="2"/>  
+  </generalization>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true"/>    
+    <operations public="true" package="true" protected="true" private="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>

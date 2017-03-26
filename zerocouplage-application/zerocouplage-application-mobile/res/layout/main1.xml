@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fillViewport="true" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/mob2" >
+        <ImageView 
+            android:background="@drawable/logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20px"
+            android:layout_marginLeft="20px"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dip" >
+
+            <TextView
+                android:id="@+id/hello"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Welcome"
+                android:layout_marginLeft="1px"
+                android:paddingLeft="30px"
+                android:paddingTop="180px"
+                android:layout_marginTop="35px"
+                android:textColor="#ffffff" />
+
+            <Button
+                android:id="@+id/back"
+                android:layout_width="159dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="110px"
+                android:layout_marginTop="80px"
+                android:background="@drawable/btn_mobile"
+                android:text="   Retour  "
+                android:textColor="#ffffff"  />
+        </LinearLayout>
+    </RelativeLayout>
+
+</ScrollView>

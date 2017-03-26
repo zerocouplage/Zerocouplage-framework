@@ -1,0 +1,163 @@
+<?xml version="1.0"?>
+<!--   xml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="zcouplage.xsd">
+ -->
+<zcouplage
+    DevModes="prod"
+    context="web" >
+   
+    <!-- mapping   package -->
+
+    <mapping-view-bean>
+
+        <mapping
+            isSame="false"
+            ref-bean="UserBeanIn"
+            ref-view="viewI" >
+
+            <key
+                beanProperty="action"
+                viewProperty="out_action" />
+   
+            <key
+                beanProperty="prenom"
+                viewProperty="lastname" />   
+        </mapping>
+    </mapping-view-bean>
+    
+    <virtualviews-package>
+		<virtualView context="web"
+			class="com.zerocouplage.web.manager.ZCManagerWeb" />
+	</virtualviews-package>
+
+    <!-- Security Role Manager Package -->
+	<role-manager class="org.zerocouplage.rolemanager.impl.controller.ZCRule">
+		<policy name="securityPolicy"
+				valueTarget="ressources/ZC_security.xml"
+				errorPage="error.jsp"/>
+	</role-manager>
+	    
+	<!-- validators package -->
+    <validators-package>
+
+        <validator
+            name="valForm"
+            typeVal="file"
+            valueTarget="ressources/ZC_val.xml" />
+    </validators-package>
+
+    <!-- beans-package -->
+
+    <beans-package>
+
+        <bean
+            name="UserBeanIn"
+            class="com.zerocouplage.test.web.bean.userBeanIn" />
+    </beans-package>
+
+    <!-- Business   package -->
+
+    <business-package >
+		
+        <business
+            name="gnote_rectify"
+            class="com.zerocouplage.test.web.action.GNote"
+            method="rectify" 
+            errorpage="error.jsp"
+            securityControl="true">
+
+            <bean-ref ref-bean="UserBeanIn" />
+
+            <validator-ref ref-val="valForm" />
+
+            <view-results>
+
+                <view-result
+                    name="Rectify"
+                    bean-result="out"
+                    ref-view="viewR" />
+                      
+            </view-results>  
+        </business>
+        
+        <business
+            name="gnote_show"
+            class="com.zerocouplage.test.web.action.GNote"
+            method="show"
+            errorpage="error.jsp"
+            securityControl="true" >
+
+            <bean-ref ref-bean="UserBeanIn" />
+
+            <validator-ref ref-val="valForm" />
+
+            <view-results>
+
+                <view-result
+                    name="Show"
+                    bean-result="out"
+                    ref-view="viewSh" /> 
+                      
+            </view-results>  
+        </business>
+        
+        <business
+            name="gnote_save"
+            class="com.zerocouplage.test.web.action.GNote"
+            method="save" 
+            errorpage="error.jsp"
+            securityControl="true">
+
+            <bean-ref ref-bean="UserBeanIn" />
+
+            <validator-ref ref-val="valForm" />
+
+            <view-results>
+
+                <view-result
+                    name="Save"
+                    bean-result="out"
+                    ref-view="viewS" /> 
+                      
+            </view-results>  
+        </business>
+        
+    </business-package>
+
+    <!-- Views   package -->
+
+    <views-package>
+
+        <view
+            name="viewR"
+            method=""
+            methodError=""
+            target="rectify.jsp" />
+            
+        <view
+            name="viewS"
+            method=""
+            methodError=""
+            target="save.jsp" />
+
+        <view
+            name="viewSh"
+            method=""
+            methodError=""
+            target="show.jsp" />
+            
+        <view
+            name="viewI"
+            method=""
+            methodError=""
+            target="index.jsp" />
+            
+        <view
+            name="viewError"
+            method=""
+            methodError=""
+            target="error.jsp" />    
+    </views-package>
+
+    <!-- Add  packages  here -->
+
+</zcouplage>

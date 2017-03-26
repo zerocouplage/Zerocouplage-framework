@@ -1,0 +1,1 @@
+<button name="$name"  onClick="sendForm(this.form, $action );" style="color: $color ; height: $height; width: $width;">$text</button>

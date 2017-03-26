@@ -1,0 +1,577 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<XmlOrbacPolicy>
+<attributes>
+<name>copy of pfe_policy</name>
+<creationDate>2013.04.17 17:20:38</creationDate>
+<modificationDate>2013.04.17 17:20:38</modificationDate>
+<version>1.0</version>
+<information/>
+</attributes>
+<abstractPolicy>
+<organization name="ensao">
+<role name="Student"/>
+<role name="Teacher"/>
+<activity name="Consult"/>
+<activity name="Modify"/>
+<view name="com.zerocouplage.test.web.action.GNote"/>
+</organization>
+<organization name="adOrBAC">
+<activity name="revoke"/>
+<activity name="transfer"/>
+<activity name="delete"/>
+<activity name="manage"/>
+<activity name="create"/>
+<activity name="delegate"/>
+<view name="role_view"/>
+<view name="activity_assignment_view"/>
+<view name="activity_view"/>
+<view name="organization_view"/>
+<view name="role_transfer_view"/>
+<view name="view_hierarchy_view"/>
+<view name="view_view"/>
+<view name="grant_option_view"/>
+<view name="view_assignment_view"/>
+<view name="activity_hierarchy_view"/>
+<view name="role_delegation_view"/>
+<view name="role_assignment_view"/>
+<view name="role_hierarchy_view"/>
+<view name="organization_hierarchy_view"/>
+<view name="license_view"/>
+<view name="license_delegation_view"/>
+<view name="license_transfer_view"/>
+</organization>
+<organization_hierarchy sub_organization="ensao" super_organization="adOrBAC"/>
+<role_definition abstract_entity="Student" name="Student" type="CBeanShellEntityDefinition"/>
+<role_definition abstract_entity="Teacher" name="Teacher" type="CBeanShellEntityDefinition"/>
+<object_assignment creationDate="2013.04.17 17:20:38" object="grant_option_view" organization="adOrBAC" view="view_view"/>
+<object_assignment creationDate="2013.04.17 17:20:38" object="ra_ensao_Tariq_Student" organization="ensao" view="role_assignment_view"/>
+<object_assignment creationDate="2013.04.17 17:20:38" object="view_assignment_view" organization="adOrBAC" view="view_view"/>
+<object_assignment creationDate="2013.04.17 17:20:38" object="aa_adOrBAC_delegate_delegate" organization="adOrBAC" view="activity_assignment_view"/>
+<object_assignment creationDate="2013.04.17 17:20:38" object="view_hierarchy_view" organization="adOrBAC" view="view_hierarchy_view"/>
+<object_assignment creationDate="2013.04.17 17:20:38" object="vh_adOrBAC_role_delegation_view_role_assignment_view" organization="adOrBAC" view="view_hierarchy_view"/>
+<object_assignment creationDate="2013.04.17 17:20:38" object="admin_manage_organization_hierarchy_view" organization="adOrBAC" view="license_view"/>
+<object_assignment creationDate="2013.04.17 17:20:38" object="vh_adOrBAC_role_transfer_view_role_delegation_view" organization="adOrBAC" view="view_hierarchy_view"/>
+<object_assignment creationDate="2013.04.17 17:20:38" object="delete" organization="adOrBAC" view="activity_view"/>
+<object_assignment creationDate="2013.04.17 17:20:38" object="com.zerocouplage.test.web.action.GNote" organization="ensao" view="view_view"/>
+<object_assignment creationDate="2013.04.17 17:20:38" object="role_transfer_view" organization="adOrBAC" view="view_view"/>
+<object_assignment creationDate="2013.04.17 17:20:38" object="aa_adOrBAC_delete_delete" organization="adOrBAC" view="activity_assignment_view"/>
+<object_assignment creationDate="2013.04.17 17:20:38" object="Student" organization="ensao" view="role_view"/>
+<object_assignment creationDate="2013.04.17 17:20:38" object="admin_manage_role_assignment_view" organization="adOrBAC" view="license_view"/>
+<object_assignment creationDate="2013.04.17 17:20:38" object="create" organization="adOrBAC" view="activity_view"/>
+<object_assignment creationDate="2013.04.17 17:20:38" object="admin_manage_activity_assignment_view" organization="adOrBAC" view="license_view"/>
+<object_assignment creationDate="2013.04.17 17:20:38" object="admin_manage_grant_option_view" organization="adOrBAC" view="license_view"/>
+<object_assignment creationDate="2013.04.17 17:20:38" object="vh_adOrBAC_license_delegation_view_license_view" organization="adOrBAC" view="view_hierarchy_view"/>
+<object_assignment creationDate="2013.04.17 17:20:38" object="role_delegation_view" organization="adOrBAC" view="role_delegation_view"/>
+<object_assignment creationDate="2013.04.17 17:20:38" object="vh_adOrBAC_grant_option_view_license_delegation_view" organization="adOrBAC" view="view_hierarchy_view"/>
+<object_assignment creationDate="2013.04.17 17:20:38" object="delegate" organization="adOrBAC" view="activity_view"/>
+<object_assignment creationDate="2013.04.17 17:20:38" object="ra_ensao_Toumi_Teacher" organization="ensao" view="role_assignment_view"/>
+<object_assignment creationDate="2013.04.17 17:20:38" object="aa_adOrBAC_transfer_transfer" organization="adOrBAC" view="activity_assignment_view"/>
+<object_assignment creationDate="2013.04.17 17:20:38" object="manage" organization="adOrBAC" view="activity_view"/>
+<object_assignment creationDate="2013.04.17 17:20:38" object="Teacher" organization="ensao" view="role_view"/>
+<object_assignment creationDate="2013.04.17 17:20:38" object="aa_adOrBAC_revoke_revoke" organization="adOrBAC" view="activity_assignment_view"/>
+<object_assignment creationDate="2013.04.17 17:20:38" object="view_view" organization="adOrBAC" view="view_view"/>
+<object_assignment creationDate="2013.04.17 17:20:38" object="Consult" organization="ensao" view="activity_view"/>
+<object_assignment creationDate="2013.04.17 17:20:38" object="aa_adOrBAC_manage_manage" organization="adOrBAC" view="activity_assignment_view"/>
+<object_assignment creationDate="2013.04.17 17:20:38" object="admin_manage_activity_view" organization="adOrBAC" view="license_view"/>
+<object_assignment creationDate="2013.04.17 17:20:38" object="organization_view" organization="adOrBAC" view="organization_view"/>
+<object_assignment creationDate="2013.04.17 17:20:38" object="license_view" organization="adOrBAC" view="license_view"/>
+<object_assignment creationDate="2013.04.17 17:20:38" object="ra_ensao_Nadia_Student" organization="ensao" view="role_assignment_view"/>
+<object_assignment creationDate="2013.04.17 17:20:38" object="activity_hierarchy_view" organization="adOrBAC" view="activity_hierarchy_view"/>
+<object_assignment creationDate="2013.04.17 17:20:38" object="admin_manage_role_delegation_view" organization="adOrBAC" view="license_view"/>
+<object_assignment creationDate="2013.04.17 17:20:38" object="admin_manage_org_view" organization="adOrBAC" view="license_view"/>
+<object_assignment creationDate="2013.04.17 17:20:38" object="role_view" organization="adOrBAC" view="view_view"/>
+<object_assignment creationDate="2013.04.17 17:20:38" object="vh_adOrBAC_license_transfer_view_license_delegation_view" organization="adOrBAC" view="view_hierarchy_view"/>
+<object_assignment creationDate="2013.04.17 17:20:38" object="ah_adOrBAC_delete_manage" organization="adOrBAC" view="activity_hierarchy_view"/>
+<object_assignment creationDate="2013.04.17 17:20:38" object="ra_ensao_Ettifouri_Teacher" organization="ensao" view="role_assignment_view"/>
+<object_assignment creationDate="2013.04.17 17:20:38" object="admin_manage_view_view" organization="adOrBAC" view="license_view"/>
+<object_assignment creationDate="2013.04.17 17:20:38" object="ah_adOrBAC_create_manage" organization="adOrBAC" view="activity_hierarchy_view"/>
+<object_assignment creationDate="2013.04.17 17:20:38" object="role_assignment_view" organization="adOrBAC" view="role_assignment_view"/>
+<object_assignment creationDate="2013.04.17 17:20:38" object="admin_manage_license_delegation_view" organization="adOrBAC" view="license_view"/>
+<object_assignment creationDate="2013.04.17 17:20:38" object="activity_assignment_view" organization="adOrBAC" view="view_view"/>
+<object_assignment creationDate="2013.04.17 17:20:38" object="role_hierarchy_view" organization="adOrBAC" view="role_hierarchy_view"/>
+<object_assignment creationDate="2013.04.17 17:20:38" object="license_delegation_view" organization="adOrBAC" view="license_delegation_view"/>
+<object_assignment creationDate="2013.04.17 17:20:38" object="role_transfer_view" organization="adOrBAC" view="role_transfer_view"/>
+<object_assignment creationDate="2013.04.17 17:20:38" object="transfer" organization="adOrBAC" view="activity_view"/>
+<object_assignment creationDate="2013.04.17 17:20:38" object="role_hierarchy_view" organization="adOrBAC" view="view_view"/>
+<object_assignment creationDate="2013.04.17 17:20:38" object="Java" organization="ensao" view="com.zerocouplage.test.web.action.GNote"/>
+<object_assignment creationDate="2013.04.17 17:20:38" object="admin_manage_role_transfer_view" organization="adOrBAC" view="license_view"/>
+<object_assignment creationDate="2013.04.17 17:20:38" object="ra_ensao_Taoufik_Student" organization="ensao" view="role_assignment_view"/>
+<object_assignment creationDate="2013.04.17 17:20:38" object="organization_hierarchy_view" organization="adOrBAC" view="view_view"/>
+<object_assignment creationDate="2013.04.17 17:20:38" object="license_view" organization="adOrBAC" view="view_view"/>
+<object_assignment creationDate="2013.04.17 17:20:38" object="admin_manage_view_hierarchy_view" organization="adOrBAC" view="license_view"/>
+<object_assignment creationDate="2013.04.17 17:20:38" object="grant_option_view" organization="adOrBAC" view="grant_option_view"/>
+<object_assignment creationDate="2013.04.17 17:20:38" object="aa_adOrBAC_create_create" organization="adOrBAC" view="activity_assignment_view"/>
+<object_assignment creationDate="2013.04.17 17:20:38" object="organization_hierarchy_view" organization="adOrBAC" view="organization_hierarchy_view"/>
+<object_assignment creationDate="2013.04.17 17:20:38" object="Struts" organization="ensao" view="com.zerocouplage.test.web.action.GNote"/>
+<object_assignment creationDate="2013.04.17 17:20:38" object="activity_assignment_view" organization="adOrBAC" view="activity_assignment_view"/>
+<object_assignment creationDate="2013.04.17 17:20:38" object="ra_ensao_Abdeljalil_Student" organization="ensao" view="role_assignment_view"/>
+<object_assignment creationDate="2013.04.17 17:20:38" object="role_view" organization="adOrBAC" view="role_view"/>
+<object_assignment creationDate="2013.04.17 17:20:38" object="Modification" organization="ensao" view="license_view"/>
+<object_assignment creationDate="2013.04.17 17:20:38" object="ra_ensao_Asmae_Student" organization="ensao" view="role_assignment_view"/>
+<object_assignment creationDate="2013.04.17 17:20:38" object="admin_manage_view_assignment_view" organization="adOrBAC" view="license_view"/>
+<object_assignment creationDate="2013.04.17 17:20:38" object="organization_view" organization="adOrBAC" view="view_view"/>
+<object_assignment creationDate="2013.04.17 17:20:38" object="role_delegation_view" organization="adOrBAC" view="view_view"/>
+<object_assignment creationDate="2013.04.17 17:20:38" object="aa_ensao_show_Consult" organization="ensao" view="activity_assignment_view"/>
+<object_assignment creationDate="2013.04.17 17:20:38" object="activity_view" organization="adOrBAC" view="activity_view"/>
+<object_assignment creationDate="2013.04.17 17:20:38" object="license_transfer_view" organization="adOrBAC" view="license_transfer_view"/>
+<object_assignment creationDate="2013.04.17 17:20:38" object="view_hierarchy_view" organization="adOrBAC" view="view_view"/>
+<object_assignment creationDate="2013.04.17 17:20:38" object="activity_view" organization="adOrBAC" view="view_view"/>
+<object_assignment creationDate="2013.04.17 17:20:38" object="admin_manage_license_transfer_view" organization="adOrBAC" view="license_view"/>
+<object_assignment creationDate="2013.04.17 17:20:38" object="admin_manage_role_hierarchy_view" organization="adOrBAC" view="license_view"/>
+<object_assignment creationDate="2013.04.17 17:20:38" object="license_delegation_view" organization="adOrBAC" view="view_view"/>
+<object_assignment creationDate="2013.04.17 17:20:38" object="revoke" organization="adOrBAC" view="activity_view"/>
+<object_assignment creationDate="2013.04.17 17:20:38" object="aa_ensao_save_Modify" organization="ensao" view="activity_assignment_view"/>
+<object_assignment creationDate="2013.04.17 17:20:38" object="admin_manage_activity_hierarchy_view" organization="adOrBAC" view="license_view"/>
+<object_assignment creationDate="2013.04.17 17:20:38" object="role_assignment_view" organization="adOrBAC" view="view_view"/>
+<object_assignment creationDate="2013.04.17 17:20:38" object="admin_manage_license_view" organization="adOrBAC" view="license_view"/>
+<object_assignment creationDate="2013.04.17 17:20:38" object="aa_ensao_rectify_Modify" organization="ensao" view="activity_assignment_view"/>
+<object_assignment creationDate="2013.04.17 17:20:38" object="Modify" organization="ensao" view="activity_view"/>
+<object_assignment creationDate="2013.04.17 17:20:38" object="license_transfer_view" organization="adOrBAC" view="view_view"/>
+<object_assignment creationDate="2013.04.17 17:20:38" object="Consultation" organization="ensao" view="license_view"/>
+<object_assignment creationDate="2013.04.17 17:20:38" object="admin_manage_role_view" organization="adOrBAC" view="license_view"/>
+<object_assignment creationDate="2013.04.17 17:20:38" object="activity_hierarchy_view" organization="adOrBAC" view="view_view"/>
+<object_assignment creationDate="2013.04.17 17:20:38" object="view_assignment_view" organization="adOrBAC" view="view_assignment_view"/>
+</abstractPolicy>
+<classes>
+<class name="inhibition_class">
+<attribute name="authority" value="null"/>
+<attribute name="privilege" value="null"/>
+<attribute name="context" value="null"/>
+<attribute name="target" value="null"/>
+<attribute name="grantee" value="null"/>
+</class>
+<class name="role_hierarchy_class">
+<attribute name="authority" value="null"/>
+<attribute name="junior_role" value="null"/>
+<attribute name="senior_role" value="null"/>
+</class>
+<class name="license_class">
+<attribute name="authority" value="null"/>
+<attribute name="parentLicense" value="null"/>
+<attribute name="privilege" value="null"/>
+<attribute name="context" value="null"/>
+<attribute name="target" value="null"/>
+<attribute name="grantor" value="null"/>
+<attribute name="grantee" value="null"/>
+</class>
+<class name="view_hierarchy_class">
+<attribute name="junior_view" value="null"/>
+<attribute name="authority" value="null"/>
+<attribute name="senior_view" value="null"/>
+</class>
+<class name="commitment_class">
+<attribute name="authority" value="null"/>
+<attribute name="parentLicense" value="null"/>
+<attribute name="task" value="null"/>
+<attribute name="obligator" value="null"/>
+<attribute name="violationContext" value="null"/>
+<attribute name="context" value="null"/>
+<attribute name="target" value="null"/>
+<attribute name="obligatee" value="null"/>
+</class>
+<class name="activity_hierarchy_class">
+<attribute name="authority" value="null"/>
+<attribute name="junior_activity" value="null"/>
+<attribute name="senior_activity" value="null"/>
+</class>
+<class name="activity_assignment_class">
+<attribute name="authority" value="null"/>
+<attribute name="assignment" value="null"/>
+<attribute name="assignee" value="null"/>
+</class>
+<class name="role_assignment_class">
+<attribute name="authority" value="null"/>
+<attribute name="assignment" value="null"/>
+<attribute name="assignee" value="null"/>
+<attribute name="grantor" value="null"/>
+</class>
+<class name="user_password_class">
+<attribute name="adorbacUserPasswordHash" value="null"/>
+</class>
+</classes>
+<subjects>
+<subject name="">
+<instance_of name="user_password_class"/>
+<attribute name="adorbacUserPasswordHash" value="null"/>
+</subject>
+<subject name="Tariq">
+<instance_of name="user_password_class"/>
+<attribute name="adorbacUserPasswordHash" value="null"/>
+</subject>
+<subject name="Asmae">
+<instance_of name="user_password_class"/>
+<attribute name="adorbacUserPasswordHash" value="null"/>
+</subject>
+<subject name="admin">
+<instance_of name="user_password_class"/>
+<attribute name="adorbacUserPasswordHash" value="333547411228765445654476765417741474654083165475"/>
+</subject>
+<subject name="ensao"/>
+<subject name="Nadia">
+<instance_of name="user_password_class"/>
+<attribute name="adorbacUserPasswordHash" value="null"/>
+</subject>
+<subject name="adOrBAC"/>
+<subject name="Taoufik">
+<instance_of name="user_password_class"/>
+<attribute name="adorbacUserPasswordHash" value="null"/>
+</subject>
+<subject name="Abdeljalil">
+<instance_of name="user_password_class"/>
+<attribute name="adorbacUserPasswordHash" value="null"/>
+</subject>
+<subject name="Toumi">
+<instance_of name="user_password_class"/>
+<attribute name="adorbacUserPasswordHash" value="null"/>
+</subject>
+<subject name="Ettifouri">
+<instance_of name="user_password_class"/>
+<attribute name="adorbacUserPasswordHash" value="null"/>
+</subject>
+</subjects>
+<actions>
+<action name="rectify"/>
+<action name="show"/>
+<action name="save"/>
+</actions>
+<objects>
+<object name="ra_ensao_Tariq_Student">
+<instance_of name="role_assignment_class"/>
+<attribute name="authority" value="ensao"/>
+<attribute name="assignment" value="Student"/>
+<attribute name="assignee" value="Tariq"/>
+<attribute name="grantor" value="null"/>
+</object>
+<object name="aa_adOrBAC_manage_manage">
+<instance_of name="activity_assignment_class"/>
+<attribute name="authority" value="adOrBAC"/>
+<attribute name="assignment" value="manage"/>
+<attribute name="assignee" value="manage"/>
+</object>
+<object name="vh_adOrBAC_license_transfer_view_license_delegation_view">
+<instance_of name="view_hierarchy_class"/>
+<attribute name="junior_view" value="license_transfer_view"/>
+<attribute name="authority" value="adOrBAC"/>
+<attribute name="senior_view" value="license_delegation_view"/>
+</object>
+<object name="admin_manage_license_view">
+<instance_of name="license_class"/>
+<attribute name="authority" value="adOrBAC"/>
+<attribute name="parentLicense" value="null"/>
+<attribute name="privilege" value="manage"/>
+<attribute name="target" value="license_view"/>
+<attribute name="context" value="default_context"/>
+<attribute name="grantor" value="null"/>
+<attribute name="grantee" value="admin"/>
+</object>
+<object name="Struts"/>
+<object name="Java"/>
+<object name="admin_manage_license_transfer_view">
+<instance_of name="license_class"/>
+<attribute name="authority" value="adOrBAC"/>
+<attribute name="parentLicense" value="null"/>
+<attribute name="privilege" value="manage"/>
+<attribute name="target" value="license_transfer_view"/>
+<attribute name="context" value="default_context"/>
+<attribute name="grantor" value="null"/>
+<attribute name="grantee" value="admin"/>
+</object>
+<object name="admin_manage_view_view">
+<instance_of name="license_class"/>
+<attribute name="authority" value="adOrBAC"/>
+<attribute name="parentLicense" value="null"/>
+<attribute name="privilege" value="manage"/>
+<attribute name="target" value="view_view"/>
+<attribute name="context" value="default_context"/>
+<attribute name="grantor" value="null"/>
+<attribute name="grantee" value="admin"/>
+</object>
+<object name="aa_ensao_show_Consult">
+<instance_of name="activity_assignment_class"/>
+<attribute name="authority" value="ensao"/>
+<attribute name="assignment" value="Consult"/>
+<attribute name="assignee" value="show"/>
+</object>
+<object name="admin_manage_role_hierarchy_view">
+<instance_of name="license_class"/>
+<attribute name="authority" value="adOrBAC"/>
+<attribute name="parentLicense" value="null"/>
+<attribute name="privilege" value="manage"/>
+<attribute name="target" value="role_hierarchy_view"/>
+<attribute name="context" value="default_context"/>
+<attribute name="grantor" value="null"/>
+<attribute name="grantee" value="admin"/>
+</object>
+<object name="vh_adOrBAC_grant_option_view_license_delegation_view">
+<instance_of name="view_hierarchy_class"/>
+<attribute name="junior_view" value="grant_option_view"/>
+<attribute name="authority" value="adOrBAC"/>
+<attribute name="senior_view" value="license_delegation_view"/>
+</object>
+<object name="admin_manage_activity_hierarchy_view">
+<instance_of name="license_class"/>
+<attribute name="authority" value="adOrBAC"/>
+<attribute name="parentLicense" value="null"/>
+<attribute name="privilege" value="manage"/>
+<attribute name="target" value="activity_hierarchy_view"/>
+<attribute name="context" value="default_context"/>
+<attribute name="grantor" value="null"/>
+<attribute name="grantee" value="admin"/>
+</object>
+<object name="aa_adOrBAC_create_create">
+<instance_of name="activity_assignment_class"/>
+<attribute name="authority" value="adOrBAC"/>
+<attribute name="assignment" value="create"/>
+<attribute name="assignee" value="create"/>
+</object>
+<object name="ah_adOrBAC_delete_manage">
+<instance_of name="activity_hierarchy_class"/>
+<attribute name="authority" value="adOrBAC"/>
+<attribute name="junior_activity" value="delete"/>
+<attribute name="senior_activity" value="manage"/>
+</object>
+<object name="aa_ensao_rectify_Modify">
+<instance_of name="activity_assignment_class"/>
+<attribute name="authority" value="ensao"/>
+<attribute name="assignment" value="Modify"/>
+<attribute name="assignee" value="rectify"/>
+</object>
+<object name="admin_manage_view_hierarchy_view">
+<instance_of name="license_class"/>
+<attribute name="authority" value="adOrBAC"/>
+<attribute name="parentLicense" value="null"/>
+<attribute name="privilege" value="manage"/>
+<attribute name="target" value="view_hierarchy_view"/>
+<attribute name="context" value="default_context"/>
+<attribute name="grantor" value="null"/>
+<attribute name="grantee" value="admin"/>
+</object>
+<object name="admin_manage_activity_view">
+<instance_of name="license_class"/>
+<attribute name="authority" value="adOrBAC"/>
+<attribute name="parentLicense" value="null"/>
+<attribute name="privilege" value="manage"/>
+<attribute name="target" value="activity_view"/>
+<attribute name="context" value="default_context"/>
+<attribute name="grantor" value="null"/>
+<attribute name="grantee" value="admin"/>
+</object>
+<object name="vh_adOrBAC_role_transfer_view_role_delegation_view">
+<instance_of name="view_hierarchy_class"/>
+<attribute name="junior_view" value="role_transfer_view"/>
+<attribute name="authority" value="adOrBAC"/>
+<attribute name="senior_view" value="role_delegation_view"/>
+</object>
+<object name="admin_manage_view_assignment_view">
+<instance_of name="license_class"/>
+<attribute name="authority" value="adOrBAC"/>
+<attribute name="parentLicense" value="null"/>
+<attribute name="privilege" value="manage"/>
+<attribute name="target" value="view_assignment_view"/>
+<attribute name="context" value="default_context"/>
+<attribute name="grantor" value="null"/>
+<attribute name="grantee" value="admin"/>
+</object>
+<object name="ra_ensao_Asmae_Student">
+<instance_of name="role_assignment_class"/>
+<attribute name="authority" value="ensao"/>
+<attribute name="assignment" value="Student"/>
+<attribute name="assignee" value="Asmae"/>
+<attribute name="grantor" value="null"/>
+</object>
+<object name="admin_manage_role_view">
+<instance_of name="license_class"/>
+<attribute name="authority" value="adOrBAC"/>
+<attribute name="parentLicense" value="null"/>
+<attribute name="privilege" value="manage"/>
+<attribute name="target" value="role_view"/>
+<attribute name="context" value="default_context"/>
+<attribute name="grantor" value="null"/>
+<attribute name="grantee" value="admin"/>
+</object>
+<object name="admin_manage_grant_option_view">
+<instance_of name="license_class"/>
+<attribute name="authority" value="adOrBAC"/>
+<attribute name="parentLicense" value="null"/>
+<attribute name="privilege" value="manage"/>
+<attribute name="target" value="grant_option_view"/>
+<attribute name="context" value="default_context"/>
+<attribute name="grantor" value="null"/>
+<attribute name="grantee" value="admin"/>
+</object>
+<object name="ra_ensao_Toumi_Teacher">
+<instance_of name="role_assignment_class"/>
+<attribute name="authority" value="ensao"/>
+<attribute name="assignment" value="Teacher"/>
+<attribute name="assignee" value="Toumi"/>
+<attribute name="grantor" value="null"/>
+</object>
+<object name="admin_manage_role_delegation_view">
+<instance_of name="license_class"/>
+<attribute name="authority" value="adOrBAC"/>
+<attribute name="parentLicense" value="null"/>
+<attribute name="privilege" value="manage"/>
+<attribute name="target" value="role_delegation_view"/>
+<attribute name="context" value="default_context"/>
+<attribute name="grantor" value="null"/>
+<attribute name="grantee" value="admin"/>
+</object>
+<object name="admin_manage_role_assignment_view">
+<instance_of name="license_class"/>
+<attribute name="authority" value="adOrBAC"/>
+<attribute name="parentLicense" value="null"/>
+<attribute name="privilege" value="manage"/>
+<attribute name="target" value="role_assignment_view"/>
+<attribute name="context" value="default_context"/>
+<attribute name="grantor" value="null"/>
+<attribute name="grantee" value="admin"/>
+</object>
+<object name="admin_manage_license_delegation_view">
+<instance_of name="license_class"/>
+<attribute name="authority" value="adOrBAC"/>
+<attribute name="parentLicense" value="null"/>
+<attribute name="privilege" value="manage"/>
+<attribute name="target" value="license_delegation_view"/>
+<attribute name="context" value="default_context"/>
+<attribute name="grantor" value="null"/>
+<attribute name="grantee" value="admin"/>
+</object>
+<object name="ra_ensao_Nadia_Student">
+<instance_of name="role_assignment_class"/>
+<attribute name="authority" value="ensao"/>
+<attribute name="assignment" value="Student"/>
+<attribute name="assignee" value="Nadia"/>
+<attribute name="grantor" value="null"/>
+</object>
+<object name="admin_manage_org_view">
+<instance_of name="license_class"/>
+<attribute name="authority" value="adOrBAC"/>
+<attribute name="parentLicense" value="null"/>
+<attribute name="privilege" value="manage"/>
+<attribute name="target" value="organization_view"/>
+<attribute name="context" value="default_context"/>
+<attribute name="grantor" value="null"/>
+<attribute name="grantee" value="admin"/>
+</object>
+<object name="ra_ensao_Ettifouri_Teacher">
+<instance_of name="role_assignment_class"/>
+<attribute name="authority" value="ensao"/>
+<attribute name="assignment" value="Teacher"/>
+<attribute name="assignee" value="Ettifouri"/>
+<attribute name="grantor" value="null"/>
+</object>
+<object name="aa_adOrBAC_delete_delete">
+<instance_of name="activity_assignment_class"/>
+<attribute name="authority" value="adOrBAC"/>
+<attribute name="assignment" value="delete"/>
+<attribute name="assignee" value="delete"/>
+</object>
+<object name="aa_adOrBAC_revoke_revoke">
+<instance_of name="activity_assignment_class"/>
+<attribute name="authority" value="adOrBAC"/>
+<attribute name="assignment" value="revoke"/>
+<attribute name="assignee" value="revoke"/>
+</object>
+<object name="ra_ensao_Taoufik_Student">
+<instance_of name="role_assignment_class"/>
+<attribute name="authority" value="ensao"/>
+<attribute name="assignment" value="Student"/>
+<attribute name="assignee" value="Taoufik"/>
+<attribute name="grantor" value="null"/>
+</object>
+<object name="admin_manage_activity_assignment_view">
+<instance_of name="license_class"/>
+<attribute name="authority" value="adOrBAC"/>
+<attribute name="parentLicense" value="null"/>
+<attribute name="privilege" value="manage"/>
+<attribute name="target" value="activity_assignment_view"/>
+<attribute name="context" value="default_context"/>
+<attribute name="grantor" value="null"/>
+<attribute name="grantee" value="admin"/>
+</object>
+<object name="Consultation">
+<instance_of name="license_class"/>
+<attribute name="authority" value="ensao"/>
+<attribute name="parentLicense" value="null"/>
+<attribute name="privilege" value="Consult"/>
+<attribute name="target" value="com.zerocouplage.test.web.action.GNote"/>
+<attribute name="context" value="default_context"/>
+<attribute name="grantor" value="null"/>
+<attribute name="grantee" value="Student"/>
+</object>
+<object name="admin_manage_organization_hierarchy_view">
+<instance_of name="license_class"/>
+<attribute name="authority" value="adOrBAC"/>
+<attribute name="parentLicense" value="null"/>
+<attribute name="privilege" value="manage"/>
+<attribute name="target" value="organization_hierarchy_view"/>
+<attribute name="context" value="default_context"/>
+<attribute name="grantor" value="null"/>
+<attribute name="grantee" value="admin"/>
+</object>
+<object name="Modification">
+<instance_of name="license_class"/>
+<attribute name="authority" value="ensao"/>
+<attribute name="parentLicense" value="null"/>
+<attribute name="privilege" value="Modify"/>
+<attribute name="target" value="com.zerocouplage.test.web.action.GNote"/>
+<attribute name="context" value="default_context"/>
+<attribute name="grantor" value="null"/>
+<attribute name="grantee" value="Teacher"/>
+</object>
+<object name="admin_manage_role_transfer_view">
+<instance_of name="license_class"/>
+<attribute name="authority" value="adOrBAC"/>
+<attribute name="parentLicense" value="null"/>
+<attribute name="privilege" value="manage"/>
+<attribute name="target" value="role_transfer_view"/>
+<attribute name="context" value="default_context"/>
+<attribute name="grantor" value="null"/>
+<attribute name="grantee" value="admin"/>
+</object>
+<object name="vh_adOrBAC_role_delegation_view_role_assignment_view">
+<instance_of name="view_hierarchy_class"/>
+<attribute name="junior_view" value="role_delegation_view"/>
+<attribute name="authority" value="adOrBAC"/>
+<attribute name="senior_view" value="role_assignment_view"/>
+</object>
+<object name="aa_ensao_save_Modify">
+<instance_of name="activity_assignment_class"/>
+<attribute name="authority" value="ensao"/>
+<attribute name="assignment" value="Modify"/>
+<attribute name="assignee" value="save"/>
+</object>
+<object name="aa_adOrBAC_transfer_transfer">
+<instance_of name="activity_assignment_class"/>
+<attribute name="authority" value="adOrBAC"/>
+<attribute name="assignment" value="transfer"/>
+<attribute name="assignee" value="transfer"/>
+</object>
+<object name="ah_adOrBAC_create_manage">
+<instance_of name="activity_hierarchy_class"/>
+<attribute name="authority" value="adOrBAC"/>
+<attribute name="junior_activity" value="create"/>
+<attribute name="senior_activity" value="manage"/>
+</object>
+<object name="ra_ensao_Abdeljalil_Student">
+<instance_of name="role_assignment_class"/>
+<attribute name="authority" value="ensao"/>
+<attribute name="assignment" value="Student"/>
+<attribute name="assignee" value="Abdeljalil"/>
+<attribute name="grantor" value="null"/>
+</object>
+<object name="vh_adOrBAC_license_delegation_view_license_view">
+<instance_of name="view_hierarchy_class"/>
+<attribute name="junior_view" value="license_delegation_view"/>
+<attribute name="authority" value="adOrBAC"/>
+<attribute name="senior_view" value="license_view"/>
+</object>
+<object name="java"/>
+<object name="aa_adOrBAC_delegate_delegate">
+<instance_of name="activity_assignment_class"/>
+<attribute name="authority" value="adOrBAC"/>
+<attribute name="assignment" value="delegate"/>
+<attribute name="assignee" value="delegate"/>
+</object>
+</objects>
+</XmlOrbacPolicy>

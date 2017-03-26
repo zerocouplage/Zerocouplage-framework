@@ -1,0 +1,24 @@
+<div style="background-color: $color ; height: $height; width: $width;" >
+#if($isForm=="true")
+<form name=$nameForm method="post" action="" >
+#end
+<input type="hidden" name="_ZC_SOURCE_VIEW_NAME" value="$ParentName">
+#if( $flowObject.direction == 1 )
+   <table border="0" >
+   		<tr>
+	   		#foreach( $componentvar in $component )
+			    <td>$componentvar.display()  </td>
+			#end
+	 	</tr>
+   </table>
+#elseif( $flowObject.direction == 0 )
+    <table>
+   		#foreach( $componentvar in $component )
+			<tr><td>$componentvar.display() </td></tr>
+		#end
+   </table>
+#end
+#if($isForm=="true")
+</form>
+#end
+</div>

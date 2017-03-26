@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bean-validators>
+    <global-message>certains champs sont obligatoires</global-message>
+	<bean-validator id="" class="">
+		<field name="nomUtilisateur" constraint="[a-zA-Z]+">
+			<message>Login is invalid</message>
+		</field>
+		<field name="datN" constraint="[0-9]{2}\/[0-9]{2}\/[0-9]{4}">
+			<message>date is invalid</message>
+		</field>
+		<field name="mail" constraint="[a-zA-Z_](.)+@[a-zA-Z_]+\.[a-z]{2,3}">
+			<message>email  is invalid</message>
+		</field>
+		
+	</bean-validator>
+</bean-validators>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- xml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="ZCComponent.xsd"> -->
+<ZCComponents context="web">
+
+	<ZCComponent classApi="org.zerocouplage.component.api.page.ZCPage"
+		classImpl="org.zerocouplage.component.web.page.ZCPageWeb" />
+
+	<ZCComponent classApi="org.zerocouplage.component.api.component.ZCLabel"
+		classImpl="org.zerocouplage.component.web.component.ZCLabelWeb" />
+
+	<ZCComponent classApi="org.zerocouplage.component.api.component.ZCTextField"
+		classImpl="org.zerocouplage.component.web.component.ZCTextFieldWeb" />
+
+	<ZCComponent classApi="org.zerocouplage.component.api.component.ZCButton"
+		classImpl="org.zerocouplage.component.web.component.ZCButtonWeb" />
+
+	<ZCComponent classApi="org.zerocouplage.component.api.component.ZCLink"
+		classImpl="org.zerocouplage.component.web.component.ZCLinkWeb" />
+
+	<ZCComponent classApi="org.zerocouplage.component.api.component.ZCTitle"
+		classImpl="org.zerocouplage.component.web.component.ZCTitleWeb" />
+
+	<ZCComponent classApi="org.zerocouplage.component.api.component.ZCHr"
+		classImpl="org.zerocouplage.component.web.component.ZCHrWeb" />
+
+	<ZCComponent classApi="org.zerocouplage.component.api.layout.ZCBorderLayout"
+		classImpl="org.zerocouplage.component.web.layout.ZCBorderLayoutWeb" />
+
+	<ZCComponent classApi="org.zerocouplage.component.api.layout.ZCFlowLayout"
+		classImpl="org.zerocouplage.component.web.layout.ZCFlowLayoutWeb" />
+
+	<ZCComponent classApi="org.zerocouplage.component.api.layout.ZCGridLayout"
+		classImpl="org.zerocouplage.component.web.layout.ZCGridLayoutWeb" />
+
+	<ZCComponent classApi="org.zerocouplage.component.api.layout.ZCBorderLayout"
+		classImpl="org.zerocouplage.component.web.layout.ZCBorderLayoutWeb" />
+
+
+	<ZCComponent classApi="org.zerocouplage.component.api.component.ZCCheckBox"
+		classImpl="org.zerocouplage.component.web.component.ZCCheckBoxWeb" />
+
+	<ZCComponent classApi="org.zerocouplage.component.api.component.ZCComboBox"
+		classImpl="org.zerocouplage.component.web.component.ZCComboBoxWeb" />
+
+	<ZCComponent classApi="org.zerocouplage.component.api.component.ZCComboBoxItem"
+		classImpl="org.zerocouplage.component.web.component.ZCComboBoxItemWeb" />
+
+	<ZCComponent classApi="org.zerocouplage.component.api.component.ZCFile"
+		classImpl="org.zerocouplage.component.web.component.ZCFileWeb" />
+
+	<ZCComponent classApi="org.zerocouplage.component.api.component.ZCImage"
+		classImpl="org.zerocouplage.component.web.component.ZCImageWeb" />
+
+	<ZCComponent classApi="org.zerocouplage.component.api.component.ZCPassword"
+		classImpl="org.zerocouplage.component.web.component.ZCPasswordWeb" />
+
+	<ZCComponent classApi="org.zerocouplage.component.api.component.ZCRadioButton"
+		classImpl="org.zerocouplage.component.web.component.ZCRadioButtonWeb" />
+
+	<ZCComponent classApi="org.zerocouplage.component.api.component.ZCTable"
+		classImpl="org.zerocouplage.component.web.component.ZCTableWeb" />
+
+	<ZCComponent classApi="org.zerocouplage.component.api.component.ZCTextArea"
+		classImpl="org.zerocouplage.component.web.component.ZCTextAreaWeb" />
+
+</ZCComponents>    

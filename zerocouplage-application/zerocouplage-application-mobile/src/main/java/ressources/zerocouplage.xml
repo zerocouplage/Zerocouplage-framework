@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zcouplage
+    DevModes="prod"
+    context="mobile" >
+
+    <virtualviews-package>
+
+        <virtualview
+            class="org.zerocouplage.mobile.impl.ZCVirtualMobile"
+            context="mobile" />
+    </virtualviews-package>
+    <!-- Mapping package -->
+
+    <mapping-view-bean>
+
+        <mapping
+            isSame="false"
+            ref-bean="UserBeanIn"
+            ref-view="viewFormCandidature" >
+
+            <key
+                beanProperty="nom"
+                viewProperty="firstName" />
+
+            <key
+                beanProperty="prenom"
+                viewProperty="lastName" />
+
+            <key
+                beanProperty="email"
+                viewProperty="mail" />
+
+            <key
+                beanProperty="civilite"
+                viewProperty="civilite" />
+
+            <key
+                beanProperty="dan"
+                format="dd/MM/yyyy"
+                viewProperty="birthday" />
+
+            <key
+                beanProperty="nbAnneeExp"
+                viewProperty="nbAnneeExp" />
+
+            <key
+                beanProperty="natureDemande"
+                viewProperty="mySpinner" />
+
+            <key
+                beanProperty="cv"
+                viewProperty="pathCv" />
+        </mapping>
+
+        <mapping
+            isSame="false"
+            ref-bean="UserBeanIn"
+            ref-view="view7" >
+
+            <key
+                beanProperty="idUser"
+                viewProperty="idCandidat" />
+               <key
+                beanProperty="path"
+                viewProperty="pathCv" />
+        </mapping>
+
+<!--         <mapping -->
+<!--             isSame="false" -->
+<!--             ref-bean="UserBeanIn" -->
+<!--             ref-view="view6" > -->
+
+<!--             <key -->
+<!--                 beanProperty="cv" -->
+<!--                 viewProperty="cv" /> -->
+<!--         </mapping> -->
+
+        <mapping
+            isSame="false"
+            ref-bean="AdminBeanIn"
+            ref-view="viewAuthentification" >
+
+            <key
+                beanProperty="login_admin"
+                viewProperty="login" />
+
+            <key
+                beanProperty="password_admin"
+                viewProperty="password" />
+        </mapping>
+    </mapping-view-bean>
+
+    <!-- Validators package -->
+
+    <validators-package>
+
+        <validator
+            name="valForm"
+            typeVal="file"
+            valueTarget="ZC_val.xml" />
+
+        <validator
+            name="validator"
+            typeVal="class"
+            valueTarget="org.zerocouplage.application.mobile.validateClass.RecrutValidation" />
+
+        <validator
+            name="Adminvalidator"
+            typeVal="class"
+            valueTarget="org.zerocouplage.application.mobile.validateClass.AdminValidate" />
+    </validators-package>
+
+    <!-- Beans-package -->
+
+    <beans-package>
+
+        <bean
+            name="IdBean"
+            class="org.zerocouplage.application.mobile.bean.CandidatID" />
+
+        <bean
+            name="UserBeanIn"
+            class="org.zerocouplage.application.mobile.bean.BeanUser" />
+
+        <bean
+            name="PathBean"
+            class="org.zerocouplage.application.mobile.bean.Path" />
+
+        <bean
+            name="AdminBeanIn"
+            class="org.zerocouplage.application.mobile.bean.AdminBeanIn" />
+    </beans-package>
+
+    <!-- ici -->
+    <!-- Business package -->
+
+    <business-package>
+
+        <business
+            name="Formprocessing"
+            class="org.zerocouplage.application.mobile.business.RecrutBusiness"
+            method="Formprocess" >
+
+            <bean-ref ref-bean="UserBeanIn" />
+
+            <validators-refs>
+
+                <validator-ref ref-val="valForm" />
+
+                <validator-ref ref-val="validator" />
+            </validators-refs>
+
+            <view-results>
+
+                <view-result
+                    name="success"
+                    bean-result="userout"
+                    ref-view="viewR" />
+            </view-results>
+        </business>
+
+        <business
+            name="deleteCandidat"
+            class="org.zerocouplage.application.mobile.business.RecrutBusiness"
+            method="deleteCandidat" >
+
+            <bean-ref ref-bean="UserBeanIn" />
+
+            <view-results>
+
+                <view-result
+                    name="success"
+                    ref-view="view7" />
+
+                <view-result
+                    name="failed"
+                    ref-view="view" />
+            </view-results>
+        </business>
+
+        <business
+            name="showCv"
+            class="org.zerocouplage.application.mobile.business.RecrutBusiness"
+            method="openFile" >
+
+            <bean-ref ref-bean="UserBeanIn" />
+
+            <view-results>
+
+                <view-result
+                    name="success"
+                    bean-result="outCv"
+                    ref-view="view6" />
+            </view-results>
+        </business>
+
+        <business name="processingToAuthentification" >
+
+            <view-results>
+                <view-result ref-view="viewAuthentification" />
+            </view-results>
+        </business>
+
+        <business name="processingToForm" >
+
+            <view-results>
+                <view-result ref-view="viewFormCandidature" />
+            </view-results>
+        </business>
+        
+        <business name="bdVide" >
+
+            <view-results>
+                <view-result ref-view="view" />
+            </view-results>
+        </business>
+
+        <business name="processingToFullDB" >
+
+            <bean-ref ref-bean="AdminBeanIn" />
+
+            <validators-refs>
+
+                <validator-ref ref-val="Adminvalidator" />
+            </validators-refs>
+
+            <view-results>
+
+                <view-result ref-view="view7" />
+            </view-results>
+        </business>
+
+        <business name="processingAcceuil" >
+
+            <view-results>
+
+                <view-result ref-view="viewAccueil" />
+            </view-results>
+        </business>
+    </business-package>
+
+    <!-- Views package -->
+
+    <views-package>
+
+        <view
+            name="viewFormCandidature"
+            method=""
+            methodError="processError"
+            target="org.zerocouplage.application.mobile.view.FormCandidature" />
+
+        <view
+            name="viewR"
+            method=""
+            methodError=""
+            target="org.zerocouplage.application.mobile.view.FormResult" />
+
+        <view
+            name="view7"
+            method=""
+            methodError=""
+            target="org.zerocouplage.application.mobile.view.DataAccess" />
+
+        <view
+            name="view6"
+            method=""
+            methodError=""
+            target="org.zerocouplage.application.mobile.view.ShowCv" />
+
+        <view
+            name="viewAccueil"
+            method=""
+            target="org.zerocouplage.application.mobile.view.Acceuil" />
+
+        <view
+            name="viewAuthentification"
+            method=""
+            methodError="processError"
+            target="org.zerocouplage.application.mobile.view.Authentification" />
+
+        <view
+            name="view"
+            method=""
+            methodError=""
+            target="org.zerocouplage.application.mobile.view.BdVide" />
+    </views-package>
+
+</zcouplage>

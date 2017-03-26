@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- xml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="ZCComponent.xsd"> -->
+<ZCComponents context="web">
+
+	<ZCComponent classApi="org.zerocouplage.component.api.page.ZCPage"
+		classImpl="org.zerocouplage.component.web.page.ZCPageWeb" />
+
+	<ZCComponent classApi="org.zerocouplage.component.api.component.ZCLabel"
+		classImpl="org.zerocouplage.component.web.component.ZCLabelWeb" />
+
+	<ZCComponent classApi="org.zerocouplage.component.api.component.ZCTextField"
+		classImpl="org.zerocouplage.component.web.component.ZCTextFieldWeb" />
+
+	<ZCComponent classApi="org.zerocouplage.component.api.component.ZCTextArea"
+		classImpl="org.zerocouplage.component.web.component.ZCTextAreaWeb" />
+
+	<ZCComponent classApi="org.zerocouplage.component.api.component.ZCButton"
+		classImpl="org.zerocouplage.component.web.component.ZCButtonWeb" />
+
+	<ZCComponent classApi="org.zerocouplage.component.api.component.ZCRadioButton"
+		classImpl="org.zerocouplage.component.web.component.ZCRadioButtonWeb" />
+
+	<ZCComponent classApi="org.zerocouplage.component.api.component.ZCCheckBox"
+		classImpl="org.zerocouplage.component.web.component.ZCCheckBoxWeb" />
+
+	<ZCComponent classApi="org.zerocouplage.component.api.component.ZCComboBox"
+		classImpl="org.zerocouplage.component.web.component.ZCComboBoxWeb" />
+
+	<ZCComponent classApi="org.zerocouplage.component.api.component.ZCRadioButton"
+		classImpl="org.zerocouplage.component.web.component.ZCRadioButtonWeb" />
+
+
+
+	<ZCComponent classApi="org.zerocouplage.component.api.layout.ZCBorderLayout"
+		classImpl="org.zerocouplage.component.web.layout.ZCBorderLayoutWeb" />
+
+	<ZCComponent classApi="org.zerocouplage.component.api.layout.ZCFlowLayout"
+		classImpl="org.zerocouplage.component.web.layout.ZCFlowLayoutWeb" />
+
+	<ZCComponent classApi="org.zerocouplage.component.api.layout.ZCGridBagLayout"
+		classImpl="org.zerocouplage.component.web.layout.ZCGridBagLayoutWeb" />
+
+	<ZCComponent classApi="org.zerocouplage.component.api.layout.ZCLayout"
+		classImpl="org.zerocouplage.component.web.layout.ZCLayoutWeb" />
+
+</ZCComponents>    

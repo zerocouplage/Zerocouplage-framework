@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zcouplage DevModes="prod" context="web">
+
+	<!-- Mapping package -->
+
+	<mapping-view-bean>
+
+		<mapping isSame="false" ref-bean="UserBeanIn" ref-view="viewI">
+
+			<key beanProperty="nom" viewProperty="firstName" />
+			<key beanProperty="valeur_nom" viewProperty="value_name" />
+			<key beanProperty="id_prof" viewProperty="id_prof" />
+			<key beanProperty="valeur_id" viewProperty="value_id" />
+			<key beanProperty="action" viewProperty="o_action" />
+
+		</mapping>
+
+	</mapping-view-bean>
+
+	<!-- Validators package <validators-package> <validator name="valForm" typeVal="file" 
+		valueTarget="ressources/ZC_val.xml" /> </validators-package> -->
+
+	<!-- Beans-package -->
+
+	<beans-package>
+		<bean name="UserBeanIn"
+			class="org.zerocouplage.component.test.proxy.bean.UserBeanIn" />
+	</beans-package>
+
+	<!-- Security-package -->
+
+	<role-manager class="org.zerocouplage.component.test.controller.ZCRule">
+
+		<policy name="securityPolicy" valueTarget="ressources/ZC_security.xml"
+			errorPage="error.jsp" />
+
+		<policy name="SecurityPolicyComponent" valueTarget="ressources/Component_security.xml"
+			errorPage="" action="show" />
+	</role-manager>
+
+
+	<!-- Business package -->
+
+	<business-package>
+		<business name="processing"
+			class="org.zerocouplage.component.test.proxy.business.ProcessForm"
+			method="process">
+			<bean-ref ref-bean="UserBeanIn" />
+			<validator-ref ref-val="valForm" />
+			<view-results>
+				<view-result name="success" bean-result="out" ref-view="viewR" />
+			</view-results>
+		</business>
+		
+	</business-package>
+
+	<!-- Views package -->
+	<views-package>
+	
+
+		<view name="viewSh" method="" methodError=""
+			target="org.zerocouplage.component.test.proxy.view.show" />
+
+		<view name="viewI" method="createGui" methodError="processError"
+			target="org.zerocouplage.component.test.proxy.view.UserView" />
+
+		<view name="viewR" method="createResultGui" methodError=""
+			target="org.zerocouplage.component.test.proxy.view.UserDisplayView" />
+	</views-package>
+</zcouplage>
