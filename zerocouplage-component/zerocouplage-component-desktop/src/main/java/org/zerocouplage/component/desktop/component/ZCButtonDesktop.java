@@ -23,7 +23,8 @@ import org.zerocouplage.impl.controller.ZCManagerFactory;
 public class ZCButtonDesktop extends ZCAbstractButton {
 
 	
-	private Button button = new Button();
+	private Button button= new Button();
+	
 	private static IZCLogger logger = ZCLoggerFactory
 			.getLogger(ZCButtonDesktop.class);
 	@Override
