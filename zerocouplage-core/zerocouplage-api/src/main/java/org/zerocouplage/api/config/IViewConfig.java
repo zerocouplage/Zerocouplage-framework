@@ -71,5 +71,8 @@ public interface IViewConfig {
 	 * @param methodeErrorName the name of the IViewConfig error method
 	 */
 	public void setMethodeErrorName(String methodeErrorName);
-
+	
+	public void setBeanInName(String beanInName);
+	
+	public String getBeanInName();
 }

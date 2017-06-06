@@ -11,6 +11,7 @@ public class ZCTagLibs {
 	
 	public static final String ZCPath="zerocouplage.xml"; 
 	public static final String context="context"; 
+	public static final String appName="appName";
 	public static final String DevModes="DevModes"; 
 	
 	public static final String mapBeanViewPackage="mapping-view-bean"; 
@@ -53,6 +54,7 @@ public class ZCTagLibs {
 	public static final String valueTarget="valueTarget";
 	public static final String method="method";
 	public static final String methodError="methodError";
+	public static final String beanIn="beanIn";
 	public static final String pageError="pageError";
 	
 	

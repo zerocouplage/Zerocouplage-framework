@@ -12,10 +12,14 @@ import org.zerocouplage.api.logger.IZCLogger;
 import org.zerocouplage.common.logger.ZCLoggerFactory;
 import org.zerocouplage.common.reflect.ReflectManager;
 import org.zerocouplage.common.tools.StringTools;
+import org.zerocouplage.component.api.page.ZCPage;
+import org.zerocouplage.component.mobile.page.ZCSharedMobilePage;
 import org.zerocouplage.impl.config.ZeroCouplageConfigImpl;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.widget.LinearLayout;
+
 /**
  * @author Nasseur Hinde vesion 1.2.0
  * 
@@ -24,8 +28,10 @@ public class ZCVirtualMobile implements IZCVirtualView {
 	String viewName;
 	Intent intent;
 	Object viewInstance;
-	private static IZCLogger logger = ZCLoggerFactory
-			.getLogger(ZCVirtualMobile.class);
+	public static Activity mainActivity = new Activity();
+	LinearLayout resultLayout;
+
+	private static IZCLogger logger = ZCLoggerFactory.getLogger(ZCVirtualMobile.class);
 
 	private Map<String, Object> listMobileParams;
 
@@ -41,10 +47,8 @@ public class ZCVirtualMobile implements IZCVirtualView {
 		for (int i = 0; i < viewMethodes.length; i++) {
 			String methodName = viewMethodes[i].getName();
 			if (methodName.startsWith("get")) {
-				listMobileParams
-						.put(StringTools.createFieldName(methodName),
-								ReflectManager.executeMethode(viewInstance,
-										methodName));
+				listMobileParams.put(StringTools.createFieldName(methodName),
+						ReflectManager.executeMethode(viewInstance, methodName));
 			}
 
 		}
@@ -59,36 +63,39 @@ public class ZCVirtualMobile implements IZCVirtualView {
 	}
 
 	@Override
-	public void goToPageError(String pageName,
-			Map<String, String> listParamsError) {
+	public void goToPageError(String pageName, Map<String, String> listParamsError) {
+
+		IViewConfig viewApplicableConfig = null;
 		IZeroCouplageConfig zcConfig = ZeroCouplageConfigImpl.getInstance();
-		IViewConfig viewConfig = null;
 		String className = viewInstance.getClass().getName();
-		viewConfig = zcConfig.getLoaderConfig().getViewConfigMap()
+		IViewConfig currentViewConfig = zcConfig.getLoaderConfig().getViewConfigMap()
 				.getViewConfigByClassName(className);
-		if (viewInstance.getClass().getName().equals(pageName)) {
 
-			ReflectManager.executeMethode(viewInstance,
-					viewConfig.getMethodeErrorName(), listParamsError);
-
+		Object instanceView = null;
+		if (currentViewConfig.getName() != null && currentViewConfig.getName().equals(pageName)) {
+			instanceView = this.viewInstance;
+			viewApplicableConfig = currentViewConfig;
 		} else {
-			Object viewResult = ReflectManager
-					.creatInstanceByClassName(pageName);
+			viewApplicableConfig = zcConfig.getLoaderConfig().getViewConfigMap().getViewConfigByName(pageName);
+			String target = viewApplicableConfig.getTargetName();
+			instanceView = ReflectManager.creatInstanceByClassName(target);
+		}
 
-			intent = new Intent(((Activity) viewInstance).getApplication(),
-					viewResult.getClass());
+		ReflectManager.executeMethode(instanceView, viewApplicableConfig.getMethodeErrorName(), listParamsError);
 
-			for (String errorField : listParamsError.keySet()) {
-				intent.putExtra(errorField, listParamsError.get(errorField));
-			}
+		Object page = ReflectManager.executeMethode(instanceView, viewApplicableConfig.getMethodeName());
+		ZCPage currentPage = null;
+		if (ZCPage.class.isInstance(page)) {
+			currentPage = (ZCPage) page;
+		} else {
+			throw new RuntimeException("problem while running a methode or a constructor");
+		}
 
-			for (String Field : listMobileParams.keySet()) {
-				intent.putExtra(Field,
-						(Serializable) listMobileParams.get(Field));
-			}
-
-			((Activity) viewInstance).startActivity(intent);
-
+		try {
+			ZCSharedMobilePage.getINSTANCE().drawPage(currentPage);
+		} catch (Exception e) {
+			logger.error("cannot draw the current page ");
+			e.printStackTrace();
 		}
 
 	}
@@ -99,8 +106,7 @@ public class ZCVirtualMobile implements IZCVirtualView {
 		IZeroCouplageConfig zcConfig = ZeroCouplageConfigImpl.getInstance();
 		IViewConfig viewConfig = null;
 		String className = viewInstance.getClass().getName();
-		viewConfig = zcConfig.getLoaderConfig().getViewConfigMap()
-				.getViewConfigByClassName(className);
+		viewConfig = zcConfig.getLoaderConfig().getViewConfigMap().getViewConfigByClassName(className);
 		viewName = viewConfig.getName();
 
 		return viewName;
@@ -112,33 +118,62 @@ public class ZCVirtualMobile implements IZCVirtualView {
 	}
 
 	@Override
-	public void goToPage(String pageName, String beanName, Object beanValue,
-			boolean useSameViewInstance) {
+	public void goToPage(String pageName, String beanName, Object beanValue, boolean useSameViewInstance) {
+
 		IZeroCouplageConfig zcConfig = ZeroCouplageConfigImpl.getInstance();
 
-		IViewConfig resultView = zcConfig.getLoaderConfig().getViewConfigMap()
-				.getViewConfigByName(pageName);
-		String target = resultView.getTargetName();
+		IViewConfig resultViewConfig = zcConfig.getLoaderConfig().getViewConfigMap().getViewConfigByName(pageName);
+		String target = resultViewConfig.getTargetName();
 
+		Object instanceView = null;
 		if (useSameViewInstance) {
-			intent = new Intent(((Activity) viewInstance).getApplication(),
-					viewInstance.getClass());
-			if (beanValue != null) {
-				intent.putExtra(beanName, (Serializable) beanValue);
-			}
-
+			instanceView = this.viewInstance;
 		} else {
-			Object view = ReflectManager.creatInstanceByClassName(target);
-
-			intent = new Intent(((Activity) viewInstance).getApplication(),
-					view.getClass());
-			if (beanValue != null) {
-				intent.putExtra(beanName, (Serializable) beanValue);
-			}
+			instanceView = ReflectManager.creatInstanceByClassName(target);
 		}
 
-		((Activity) viewInstance).startActivity(intent);
+		// Passage des parametres au view pageName (instanceView)
+		if (resultViewConfig.getBeanInName() != null && !resultViewConfig.getBeanInName().isEmpty()) {
+
+			String setterBeanNameMethode = StringTools.createSetter(resultViewConfig.getBeanInName());
+			ReflectManager.executeMethode(instanceView, setterBeanNameMethode, beanValue);
+		}
+
+		Object page = ReflectManager.executeMethode(instanceView, resultViewConfig.getMethodeName());
+		ZCPage currentPage = null;
+		if (ZCPage.class.isInstance(page)) {
+			currentPage = (ZCPage) page;
+		} else {
+			throw new RuntimeException("problem while running a methode or a constructor");
+		}
+
+		try {
+			ZCSharedMobilePage.getINSTANCE().drawPage(currentPage);
+		} catch (Exception e) {
+			logger.error("cannot draw the current page ");
+			e.printStackTrace();
+		}
 
 	}
 
 }
+
+/*
+ * 
+ * public void goToPage(String pageName, String beanName, Object beanValue,
+ * boolean useSameViewInstance) { IZeroCouplageConfig zcConfig =
+ * ZeroCouplageConfigImpl.getInstance();
+ * 
+ * //IViewConfig resultLayout = zcConfig.getLoaderConfig().getViewConfigMap()//
+ * what type ? layout ? //.getViewConfigByName(pageName);
+ * //resultLayout.setName(pageName);
+ * 
+ * LinearLayout rsl = new LinearLayout(mainActivity);
+ * 
+ * 
+ * 
+ * 
+ * mainActivity.setContentView(rsl);
+ * 
+ * }
+ */

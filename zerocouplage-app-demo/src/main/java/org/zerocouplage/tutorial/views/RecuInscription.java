@@ -18,6 +18,14 @@ public class RecuInscription implements ZCView {
 
 	private UserBeanOut userOut;
 
+	public UserBeanOut getUserOut() {
+		return userOut;
+	}
+
+	public void setUserOut(UserBeanOut userOut) {
+		this.userOut = userOut;
+	}
+
 	public static String  message = null;
 	public ZCPage executerResultat(UserBeanOut user) throws IOException,
 			ZCExceptionConfig, ZCCompNotFoundException, Exception {

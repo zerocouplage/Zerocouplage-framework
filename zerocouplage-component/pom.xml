@@ -8,6 +8,7 @@
 	<packaging>pom</packaging>
 
 	<!-- <url>http://maven.apache.org</url> -->
+	<!-- <url>http://maven.apache.org</url> -->
 
 	<modules>
 		<module>zerocouplage-component-api</module>
