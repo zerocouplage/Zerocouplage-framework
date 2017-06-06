@@ -1,11 +1,12 @@
 package org.zerocouplage.component.mobile.page;
 
-import org.zerocouplage.component.api.layout.ZCLayout;
-import org.zerocouplage.component.mobile.layout.ZCFlowLayoutMobile;
+import org.zerocouplage.api.config.IZeroCouplageConfig;
+import org.zerocouplage.api.controller.IZCManager;
+import org.zerocouplage.impl.config.ZeroCouplageConfigImpl;
+import org.zerocouplage.impl.controller.ZCManagerFactory;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.view.View;
 
 /**
  * 
@@ -14,44 +15,30 @@ import android.view.View;
  */
 public class ZCActivityMobile extends Activity {
 
-	private String title=null;
-	private ZCLayout layout;
-	
-	public ZCActivityMobile(String title, ZCFlowLayoutMobile layout) {
-		this.title = title;
-		this.layout = (ZCLayout) layout;
-
-	}
-	
- 
-	public ZCActivityMobile() {
-
-
-	}
 
 	@Override
    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
      
-       try {
-		setContentView((View) layout.display());
-	} catch (Exception e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
-       // myLayout.addView(myButton, buttonParams);
+        ZCSharedMobilePage.getINSTANCE().setMainActivityForCurrentApp(this);
+        
+		IZCManager manager = ZCManagerFactory.getNewManager(this);
+		IZeroCouplageConfig zcConfig = ZeroCouplageConfigImpl.getInstance();
+		zcConfig.getLoaderConfig().setContext("mobile");
+		
+		try {
+			manager.executeBusiness("index");
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InstantiationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        
     }
-
-	public ZCLayout getLayout() {
-		return layout;
-	}
-
-	public void setLayout(ZCLayout layout) {
-		this.layout = layout;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
-	}
 
 }

@@ -37,7 +37,13 @@ public class ViewConfigImpl implements IViewConfig{
 	 * <p>The error view method name for desktop based application</p>
 	 */
 	protected String methodeErrorName;
+
+	private String beanInName;
 	
+	public String getBeanInName() {
+		return beanInName;
+	}
+
 	/**
 	 * <p>Constructor for ViewConfigImpl</p>
 	 */
@@ -87,6 +93,11 @@ public class ViewConfigImpl implements IViewConfig{
 	@Override
 	public void setMethodeErrorName(String methodeErrorName) {
 		this.methodeErrorName = methodeErrorName;
+	}
+
+	@Override
+	public void setBeanInName(String beanInName) {
+		this.beanInName = beanInName;
 	}
 	
 }

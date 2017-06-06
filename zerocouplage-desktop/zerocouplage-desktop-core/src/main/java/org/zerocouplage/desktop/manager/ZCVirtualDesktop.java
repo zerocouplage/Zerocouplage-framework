@@ -132,12 +132,28 @@ public class ZCVirtualDesktop implements IZCVirtualView {
 		IViewConfig resultView = zcConfig.getLoaderConfig().getViewConfigMap()
 				.getViewConfigByName(pageName);
 		String target = resultView.getTargetName();
+		
+		Object instanceView = null;
+		if (useSameViewInstance) {
+			instanceView = this.viewInstance;
+		} else {
+			instanceView = ReflectManager.creatInstanceByClassName(target);
+		}
+
+		// Passage des parametres au view pageName (instanceView)
+		if (resultView.getBeanInName() != null && !resultView.getBeanInName().isEmpty()) {
+			
+			String setterBeanNameMethode = StringTools.createSetter(resultView.getBeanInName());
+			ReflectManager.executeMethode(instanceView, setterBeanNameMethode, beanValue);
+		}
+		
 		try {
-			if (ReflectManager.getNbrOfParameter(target,
+			//TODO : faire la meme chose que mobile
+			if (ReflectManager.getNbrOfParameter(instanceView,
 					resultView.getMethodeName()) == 0) {
 
-				Object page = ReflectManager.executeMethodeByClassName(target,
-						resultView.getMethodeName());
+				
+				Object page = ReflectManager.executeMethode(instanceView, resultView.getMethodeName());
 				ZCPage currentPage = null;
 				if (ZCPage.class.isInstance(page)) {
 					currentPage = (ZCPage) page;

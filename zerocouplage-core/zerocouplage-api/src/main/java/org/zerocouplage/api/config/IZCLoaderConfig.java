@@ -104,7 +104,12 @@ public interface IZCLoaderConfig {
 	public Map<String,String> getBeanViewName();
 	
 	
-
+	/**
+	 * 
+	 * 
+	 * @return  application development   context  
+	 */
+	public String getAppName();
 
 
 }

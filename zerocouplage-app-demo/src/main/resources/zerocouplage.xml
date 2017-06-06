@@ -5,13 +5,15 @@
 
 
 
-<zcouplage DevModes="dev" context="web">
+<zcouplage DevModes="dev" context="web" appName="demo">
 	<virtualviews-package>
 
 		<virtualview class="org.zerocouplage.web.manager.ZCComponentVirtualWeb"
 			context="web" />
 		<virtualview class="org.zerocouplage.desktop.manager.ZCVirtualDesktop"
 			context="desktop" />
+		<virtualview class="org.zerocouplage.mobile.manager.ZCVirtualMobile"
+			context="mobile" />	
 
 	</virtualviews-package>
 
@@ -182,25 +184,25 @@
 
 	<views-package>
 
-		<view name="Index" method="display" methodError="processError"
+		<view name="Index" method="display" methodError="processError" beanIn=""
 			target="org.zerocouplage.tutorial.views.Index" />
 
 
 		<view name="authentification" method="display" methodError="processError"
-			target="org.zerocouplage.tutorial.views.authentification" />
+			target="org.zerocouplage.tutorial.views.authentification" beanIn=""/>
 		
 		<view name="DownloadPageAcueil" method="display" methodError="processError"
-			target="org.zerocouplage.tutorial.views.DownloadPageAcueil" />
+			target="org.zerocouplage.tutorial.views.DownloadPageAcueil" beanIn=""/>
 		
 
 		<view name="inscription" method="display" methodError="processError"
-			target="org.zerocouplage.tutorial.views.Inscription" />
+			target="org.zerocouplage.tutorial.views.Inscription" beanIn=""/>
 
-		<view name="Accueil" method="executerResultat"
-			target="org.zerocouplage.tutorial.views.Accueil" />
+		<view name="Accueil" method="display"
+			target="org.zerocouplage.tutorial.views.Accueil" beanIn="userOut" />
 
-		<view name="recuInscription" method="executerResultat"
-			target="org.zerocouplage.tutorial.views.RecuInscription" />
+		<view name="recuInscription" method="display"
+			target="org.zerocouplage.tutorial.views.RecuInscription" beanIn="userOut" />
 
 	</views-package>
 

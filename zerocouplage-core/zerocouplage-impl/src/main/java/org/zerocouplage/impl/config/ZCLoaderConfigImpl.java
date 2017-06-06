@@ -53,6 +53,7 @@ public class ZCLoaderConfigImpl implements IZCLoaderConfig {
     private Map<String,String> beanviewName=new HashMap<String,String>();	
 
 	private String context;
+	private String appName; 
 	private String DevModes;
 	private static Document document;
 	private static Element ZCracine;
@@ -87,6 +88,7 @@ public class ZCLoaderConfigImpl implements IZCLoaderConfig {
 
 		ZCracine = document.getRootElement();
 		context = ZCracine.getAttributeValue(ZCTagLibs.context);
+		appName = ZCracine.getAttributeValue(ZCTagLibs.appName);
 		DevModes = ZCracine.getAttributeValue(ZCTagLibs.DevModes);
 	};
 
@@ -349,6 +351,12 @@ public class ZCLoaderConfigImpl implements IZCLoaderConfig {
 				viewConfig.setMethodeName(view.getAttributeValue(ZCTagLibs.method));
 				viewConfig.setMethodeErrorName(view
 						.getAttributeValue(ZCTagLibs.methodError));
+				
+				viewConfig.setBeanInName(view
+						.getAttributeValue(ZCTagLibs.beanIn));
+				
+				
+				
 				viewConfigMap.addViewConfig(viewConfig);
 
 			}
@@ -436,6 +444,14 @@ public class ZCLoaderConfigImpl implements IZCLoaderConfig {
 	@Override
 	public Map<String, String> getBeanViewName() {
 		return beanviewName;
+	}
+
+	public String getAppName() {
+		return appName;
+	}
+
+	public void setAppName(String appName) {
+		this.appName = appName;
 	}
 
 	
