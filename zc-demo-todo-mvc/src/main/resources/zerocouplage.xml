@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<!-- xml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="zcouplage.xsd"> -->
+
+
+
+
+
+<zcouplage DevModes="dev" context="web" appName="todoMVC">
+	
+	<virtualviews-package>
+		<virtualview class="org.zerocouplage.web.manager.ZCComponentVirtualWeb"
+			context="web" />
+		<virtualview class="org.zerocouplage.desktop.manager.ZCVirtualDesktop"
+			context="desktop" />
+		<virtualview class="org.zerocouplage.mobile.manager.ZCVirtualMobile"
+			context="mobile" />
+	</virtualviews-package>
+
+
+	<!-- mapping package -->
+	<mapping-view-bean>
+		<mapping isSame="true" ref-bean="TodoBean" ref-view="Index" />
+	</mapping-view-bean>
+
+
+	<!-- validators package -->
+	<validators-package />
+
+	<!-- beans-package -->
+	<beans-package>
+		<bean name="TodoBean" class="org.zerocouplage.tutorial.todomvc.beans.TodoBean" />
+	</beans-package>
+	<!-- Business package -->
+
+	<business-package>
+
+		<business name="index">
+			<view-results>
+				<view-result ref-view="Index" />
+			</view-results>
+		</business>
+
+		<business name="addNewTodo" class="org.zerocouplage.tutorial.todomvc.action.TodoHandler"
+			method="addTodo">
+			<bean-ref ref-bean="TodoBean" />
+			<view-results>
+				<view-result name="success" bean-result="allTodos"
+					ref-view="todoMVCView" />
+			</view-results>
+		</business>
+		
+	</business-package>
+
+	<!-- Views package -->
+	<views-package>
+		<view name="Index" method="display" methodError="processError"
+			beanIn="" target="org.zerocouplage.tutorial.todomvc.views.Index" />
+	</views-package>
+	<views-package>
+	<view name="todoMVCView" method="display" methodError="processError"
+			beanIn="allTodos" target="org.zerocouplage.tutorial.todomvc.views.Index" />
+	</views-package>
+	<!-- Add packages here -->
+
+</zcouplage>

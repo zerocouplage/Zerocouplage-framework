@@ -1,0 +1,243 @@
+<?xml version="1.0"?>
+<!-- xml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="zcouplage.xsd"> -->
+
+
+
+
+
+<zcouplage DevModes="dev" context="web" appName="demo">
+	<virtualviews-package>
+
+		<virtualview class="org.zerocouplage.web.manager.ZCComponentVirtualWeb"
+			context="web" />
+		<virtualview class="org.zerocouplage.desktop.manager.ZCVirtualDesktop"
+			context="desktop" />
+		<virtualview class="org.zerocouplage.mobile.manager.ZCVirtualMobile"
+			context="mobile" />	
+
+	</virtualviews-package>
+
+
+<business-package>
+
+	    <business name="index">
+			<view-results>
+				<view-result ref-view="Accueil" />
+			</view-results>
+		</business>
+
+</business-package>
+
+
+	<views-package>
+
+				<view name="Accueil" method="display"
+			target="org.zerocouplage.tutorial.views.Accueil" beanIn="userOut" />
+	</views-package>
+
+</zcouplage>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 	<mapping-view-bean> -->
+
+<!-- 		<mapping isSame="false" ref-bean="UserBeanIn" ref-view="authentification"> -->
+
+<!-- 			<key beanProperty="nomUtilisateur" viewProperty="login" /> -->
+
+<!-- 			<key beanProperty="motDepasse" viewProperty="password" /> -->
+
+
+
+
+<!-- 		</mapping> -->
+
+<!-- 		<mapping isSame="false" ref-bean="UserBeanIn" ref-view="inscription"> -->
+
+<!-- 			<key beanProperty="nomUtilisateur" viewProperty="login" /> -->
+
+<!-- 			<key beanProperty="motDepasse" viewProperty="password" /> -->
+
+<!-- 			<key beanProperty="civ" viewProperty="civilite" /> -->
+
+<!-- 			<key beanProperty="datN" viewProperty="birth" /> -->
+
+<!-- 			<key beanProperty="mail" viewProperty="mail" /> -->
+
+<!-- 			<key beanProperty="cvFile" viewProperty="cvFile" /> -->
+
+
+<!-- 		</mapping> -->
+
+<!-- 	<mapping isSame="false" ref-bean="UserBeanIn" ref-view="DownloadPageAcueil"> -->
+
+<!-- 			<key beanProperty="nomUtilisateur" viewProperty="rep2" /> -->
+
+<!-- 			<key beanProperty="motDepasse" viewProperty="rep1" /> -->
+
+<!-- 			<key beanProperty="civ" viewProperty="ccc" /> -->
+
+<!-- 			<key beanProperty="datN" viewProperty="birth" /> -->
+
+<!-- 			<key beanProperty="mail" viewProperty="mail" /> -->
+
+<!-- 			<key beanProperty="cvFile" viewProperty="fileToUpload" /> -->
+
+
+<!-- 		</mapping> -->
+
+
+<!-- 	</mapping-view-bean> -->
+
+
+<!-- 	<!-- validators package --> -->
+
+<!-- 	<validators-package> -->
+
+<!-- 		<validator name="val1" typeVal="file" valueTarget="valide_inscription.xml" /> -->
+<!-- 		<validator name="val2" typeVal="class" -->
+<!-- 			valueTarget="org.zerocouplage.tutorial.validation.RecrutValidation" /> -->
+		
+<!-- 	</validators-package> -->
+
+<!-- 	<!-- beans-package --> -->
+
+<!-- 	<beans-package> -->
+
+<!-- 		<bean name="UserBeanIn" class="org.zerocouplage.tutorial.beans.UserBeanIn" /> -->
+<!-- 	</beans-package> -->
+
+<!-- 	<!-- Business package --> -->
+
+<!-- 	<business-package> -->
+
+<!-- 	    <business name="index"> -->
+<!-- 			<view-results> -->
+<!-- 				<view-result ref-view="Accueil" /> -->
+<!-- 			</view-results> -->
+<!-- 		</business> -->
+		
+			
+
+<!-- 			<view-results> -->
+<!-- 				<view-result ref-view="authentification" /> -->
+<!-- 			</view-results> -->
+<!-- 		</business> -->
+
+<!-- 		<business name="download"> -->
+<!-- 			<view-results> -->
+<!-- 				<view-result ref-view="DownloadPageAcueil" /> -->
+<!-- 			</view-results> -->
+<!-- 		</business> -->
+
+<!-- 		<business name="goInscription"> -->
+<!-- 			<view-results> -->
+<!-- 				<view-result ref-view="inscription" /> -->
+<!-- 			</view-results> -->
+<!-- 		</business> -->
+
+<!-- 		<business name="traitement" class="org.zerocouplage.tutorial.action.UserAction" -->
+<!-- 			method="traiterUser"> -->
+
+<!-- 			<bean-ref ref-bean="UserBeanIn" /> -->
+<!-- 			<view-results> -->
+
+<!-- 				<view-result name="PageResultat" bean-result="beanResult" -->
+<!-- 					ref-view="Accueil" /> -->
+
+<!-- 				<view-result name="echec" bean-result="beanResult" -->
+<!-- 					ref-view="authentification" /> -->
+
+<!-- 			</view-results> -->
+<!-- 		</business> -->
+
+
+<!-- 		<business name="goTraitementInscription" class="org.zerocouplage.tutorial.action.UserAction" -->
+<!-- 			method="process"> -->
+
+<!-- 			<bean-ref ref-bean="UserBeanIn" /> -->
+<!-- 			<validators-refs> -->
+<!-- 				<validator-ref ref-val="val1" /> -->
+<!-- 				<validator-ref ref-val="val2" /> -->
+<!-- 			</validators-refs> -->
+
+
+<!-- 			<view-results> -->
+
+<!-- 				<view-result name="success" bean-result="beanResult" -->
+<!-- 					ref-view="recuInscription" /> -->
+
+<!-- 			</view-results> -->
+<!-- 		</business> -->
+		
+		
+<!-- 		<business name="downlaodFile" class="org.zerocouplage.tutorial.action.UserAction" -->
+<!-- 			method="download"> -->
+
+<!-- 			<bean-ref ref-bean="UserBeanIn" /> -->
+	
+<!-- 			<view-results> -->
+<!-- 				<view-result name="success" bean-result="photoFile" -->
+<!-- 					ref-view="recuInscription" /> -->
+<!-- 			</view-results> -->
+<!-- 		</business> -->
+		
+		
+<!-- 		<business name="uploadFile" class="org.zerocouplage.tutorial.action.UserAction" -->
+<!-- 			method="upload"> -->
+
+<!-- 			<bean-ref ref-bean="UserBeanIn" /> -->
+	
+		
+<!-- 		</business> -->
+		
+
+<!-- 	</business-package> -->
+
+<!-- 	<!-- Views package --> -->
+
+<!-- 	<views-package> -->
+
+<!-- 				<view name="Accueil" method="display" -->
+<!-- 			target="org.zerocouplage.tutorial.views.Accueil" beanIn="userOut" /> -->
+<!-- 	</views-package> -->
+
+<!-- 	<!-- Add packages here --> -->
+
+<!-- </zcouplage> -->
