@@ -20,6 +20,7 @@
 	<!-- mapping package -->
 	<mapping-view-bean>
 		<mapping isSame="true" ref-bean="TodoBean" ref-view="Index" />
+		<mapping isSame="true" ref-bean="TodoBean" ref-view="todoMVCView" />
 	</mapping-view-bean>
 
 
@@ -43,6 +44,38 @@
 		<business name="addNewTodo" class="org.zerocouplage.tutorial.todomvc.action.TodoHandler"
 			method="addTodo">
 			<bean-ref ref-bean="TodoBean" />
+			<view-results>
+				<view-result name="success" bean-result="allTodos"
+					ref-view="todoMVCView" />
+			</view-results>
+		</business>
+		
+		<business name="allTodo" class="org.zerocouplage.tutorial.todomvc.action.TodoHandler"
+			method="filterForAllTodo">
+			<view-results>
+				<view-result name="success" bean-result="allTodos"
+					ref-view="todoMVCView" />
+			</view-results>
+		</business>
+		
+		<business name="actifTodo" class="org.zerocouplage.tutorial.todomvc.action.TodoHandler"
+			method="filterForActifTodo">
+			<view-results>
+				<view-result name="success" bean-result="allTodos"
+					ref-view="todoMVCView" />
+			</view-results>
+		</business>
+		
+		<business name="completedTodo" class="org.zerocouplage.tutorial.todomvc.action.TodoHandler"
+			method="filterForCompletedTodo">
+			<view-results>
+				<view-result name="success" bean-result="allTodos"
+					ref-view="todoMVCView" />
+			</view-results>
+		</business>
+		
+		<business name="clearAllTodo" class="org.zerocouplage.tutorial.todomvc.action.TodoHandler"
+			method="clearAllTodo">
 			<view-results>
 				<view-result name="success" bean-result="allTodos"
 					ref-view="todoMVCView" />

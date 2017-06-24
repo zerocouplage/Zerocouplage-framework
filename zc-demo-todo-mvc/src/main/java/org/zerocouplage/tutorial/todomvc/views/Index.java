@@ -48,19 +48,47 @@ public class Index implements ZCView {
 		
 		if(this.listAllTodo != null && !this.listAllTodo.isEmpty())
 		{
-			//layoutMain.addComponent(displayFooter());
+			layoutMain.addComponent(displayFooter());
 		}
 		
 		
-		page.setTitle("Bienvenue");
+		page.setTitle("Bienvenue dans TODO MVC DEMO");
 		page.setBody(layoutMain);
 		return page;
 
 	}
 
-	private ZCComponent displayFooter() {
-		// TODO Auto-generated method stub
-		return null;
+	private ZCComponent displayFooter() throws Exception {
+		
+		ZCFlowLayout layoutFooter = (ZCFlowLayout) ZCComponentFactory
+				.newComponent(ZCFlowLayout.class);
+		layoutFooter.setDirection(ZCFlowLayout.X_DIRECTION);
+		
+		
+		ZCButton allTodoButton = createButton("All", "allTodo", 50);
+		ZCButton actifTodoButton = createButton("Actif", "actifTodo", 60);
+		ZCButton completedTodoButton = createButton("Completed", "completedTodo", 120);
+		ZCButton clearAllTodoButton = createButton("Clear", "clearAllTodo", 60);
+		
+		layoutFooter.addComponent(allTodoButton);
+		layoutFooter.addComponent(actifTodoButton);
+		layoutFooter.addComponent(completedTodoButton);
+		layoutFooter.addComponent(clearAllTodoButton);
+		
+		
+		return layoutFooter;
+	}
+
+	private ZCButton createButton(String textButton, String action, int withd) throws Exception {
+		ZCButton deletButton = (ZCButton) ZCComponentFactory
+				.newComponent(ZCButton.class);
+		ZCStyle styleOfButton = new ZCStyle();
+		styleOfButton.setWidth(withd);
+		styleOfButton.setColor("black");
+		deletButton.setText(textButton);
+		deletButton.setAction(action, this);
+		deletButton.setStyle(styleOfButton);
+		return deletButton;
 	}
 
 	private ZCComponent displayAllTodo() throws Exception {
@@ -72,34 +100,47 @@ public class Index implements ZCView {
 		
 		if(listAllTodo != null)
 		{
+			int currentPosition = 0;
 			for (TodoBean todoBean : listAllTodo) 
 			{
-				layoutAllTodos.addComponent(createLigneTodo(todoBean));	
+				layoutAllTodos.addComponent(createLigneTodo(todoBean, currentPosition++));	
 			}	
 		}
 		return layoutAllTodos;
 	}
 
-	private ZCComponent createLigneTodo(TodoBean todoBean) throws Exception {
+	private ZCComponent createLigneTodo(TodoBean todoBean, int currentPosition) throws Exception {
 
 		ZCFlowLayout layoutOneTache = (ZCFlowLayout) ZCComponentFactory
 				.newComponent(ZCFlowLayout.class);
 		layoutOneTache.setDirection(ZCFlowLayout.X_DIRECTION);
-		ZCStyle styleOfComponent = new ZCStyle();
-		styleOfComponent.setColor("black");
-		styleOfComponent.setWidth(100);
-
-		ZCLabel labelOfLogin = (ZCLabel) ZCComponentFactory
+		
+		ZCStyle styleOfLabel = new ZCStyle();
+		styleOfLabel.setWidth(150);
+		if(todoBean.isCompleted())
+		{
+			styleOfLabel.setColor("green");
+		}
+		else
+		{
+			styleOfLabel.setColor("blue");
+		}
+		
+		
+		ZCLabel labelOfTache = (ZCLabel) ZCComponentFactory
 				.newComponent(ZCLabel.class);
-		labelOfLogin.setLabel(todoBean.getTache());
-		labelOfLogin.setStyle(styleOfComponent);
+		labelOfTache.setLabel(todoBean.getTache());
+		labelOfTache.setStyle(styleOfLabel);
 		
 		ZCCheckBox checkBoxTodo = (ZCCheckBox) ZCComponentFactory
 		.newComponent(ZCCheckBox.class);
 		
 		checkBoxTodo.setName("todo");
 		checkBoxTodo.setChecked(todoBean.isCompleted());
-		checkBoxTodo.setStyle(styleOfComponent);
+		
+		
+		
+		//checkBoxTodo.setStyle(styleOfComponent);
 		
 		ZCButton deletButton = (ZCButton) ZCComponentFactory
 				.newComponent(ZCButton.class);
@@ -112,8 +153,17 @@ public class Index implements ZCView {
 		//deletButton.setAction("deleteTodo", this);
 		deletButton.setStyle(styleOfButton);
 		
+		if(currentPosition % 2 == 0)
+		{
+			ZCStyle styleOfLayoutOneTache = new ZCStyle();
+			styleOfLayoutOneTache.setColor("red");
+			layoutOneTache.setStyle(styleOfLayoutOneTache);
+		}
+		
+		
+		
 		layoutOneTache.addComponent(checkBoxTodo);
-		layoutOneTache.addComponent(labelOfLogin);
+		layoutOneTache.addComponent(labelOfTache);
 		layoutOneTache.addComponent(deletButton);
 		
 		return layoutOneTache;
@@ -143,7 +193,7 @@ public class Index implements ZCView {
 		addTodoButton.setAction("addNewTodo", this);
 		addTodoButton.setStyle(styleOfButton);
 		
-		layoutAddTache.setDirection(ZCFlowLayout.X_DIRECTION);
+		layoutAddTache.setDirection(ZCFlowLayout.X_DIRECTION); 
 		layoutAddTache.setForm(true);
 		
 		layoutAddTache.addComponent(tacheText);

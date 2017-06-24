@@ -1,8 +1,8 @@
 package org.zerocouplage.component.desktop.component;
 
-import javafx.scene.control.Label;
-
 import org.zerocouplage.component.impl.component.ZCAbstractLabel;
+
+import javafx.scene.control.Label;
 /**
  * <p>
  * ZCLabelDesktop is the ZCLabel component in Desktop
