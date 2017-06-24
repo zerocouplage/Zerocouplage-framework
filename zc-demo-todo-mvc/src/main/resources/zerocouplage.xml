@@ -55,11 +55,10 @@
 	<views-package>
 		<view name="Index" method="display" methodError="processError"
 			beanIn="" target="org.zerocouplage.tutorial.todomvc.views.Index" />
-	</views-package>
-	<views-package>
-	<view name="todoMVCView" method="display" methodError="processError"
+		<view name="todoMVCView" method="display" methodError="processError"
 			beanIn="allTodos" target="org.zerocouplage.tutorial.todomvc.views.Index" />
 	</views-package>
+	
 	<!-- Add packages here -->
 
 </zcouplage>

@@ -1,11 +1,11 @@
 package org.zerocouplage.component.desktop.layout;
 
+import org.zerocouplage.component.impl.layout.ZCAbstractFlowLayout;
+
 import javafx.geometry.Insets;
 import javafx.geometry.Orientation;
 import javafx.scene.Node;
 import javafx.scene.layout.FlowPane;
-
-import org.zerocouplage.component.impl.layout.ZCAbstractFlowLayout;
 
 /**
  * <p>
@@ -22,7 +22,7 @@ public class ZCFlowLayoutDesktop extends ZCAbstractFlowLayout {
 		flow.setPadding(new Insets(5, 5, 5, 5));
 		flow.setVgap(4);
 		flow.setHgap(4);
-		if(!getStyle().equals(null)){
+		if(getStyle() != null && getStyle().getColor() != null){
 		flow.setStyle("-fx-background-color:" + getStyle().getColor() + ";");
 		}
 		if (getStyle().getHeight() != 0) {
@@ -42,7 +42,6 @@ public class ZCFlowLayoutDesktop extends ZCAbstractFlowLayout {
 		while (tmpCounter < getComponent().size()) {
 			flow.getChildren().add((Node) getComponent(tmpCounter).display());
 			tmpCounter++;
-
 		}
 		
 		return flow;

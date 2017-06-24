@@ -17,7 +17,6 @@ import org.zerocouplage.component.api.page.ZCPage;
 import org.zerocouplage.component.api.view.ZCView;
 import org.zerocouplage.component.common.ZCComponentFactory;
 import org.zerocouplage.component.impl.style.ZCStyle;
-import org.zerocouplage.tutorial.todomvc.beans.ListTodos;
 import org.zerocouplage.tutorial.todomvc.beans.TodoBean;
 
 public class Index implements ZCView {
@@ -32,13 +31,26 @@ public class Index implements ZCView {
 		page.setName("TodoMVC");
 	
 		
+	
 		ZCFlowLayout layoutMain = (ZCFlowLayout) ZCComponentFactory
 				.newComponent(ZCFlowLayout.class);
 		layoutMain.setDirection(ZCFlowLayout.Y_DIRECTION);
 		layoutMain.setForm(true);
+		
+		ZCStyle styleOfComponent = new ZCStyle();
+		styleOfComponent.setHeight(600);
+		//styleOfComponent.setColor("black");
+	    layoutMain.setStyle(styleOfComponent);
+		
+		
 		layoutMain.addComponent(createZoneSaisi());
 		layoutMain.addComponent(displayAllTodo());
-		//layoutMain.addComponent(displayFooter());
+		
+		if(this.listAllTodo != null && !this.listAllTodo.isEmpty())
+		{
+			//layoutMain.addComponent(displayFooter());
+		}
+		
 		
 		page.setTitle("Bienvenue");
 		page.setBody(layoutMain);
@@ -58,12 +70,13 @@ public class Index implements ZCView {
 		layoutAllTodos.setDirection(ZCFlowLayout.Y_DIRECTION);
 		//layoutMain.setForm(true);
 		
-		
-		for (TodoBean todoBean : listAllTodo) 
+		if(listAllTodo != null)
 		{
-			layoutAllTodos.addComponent(createLigneTodo(todoBean));	
+			for (TodoBean todoBean : listAllTodo) 
+			{
+				layoutAllTodos.addComponent(createLigneTodo(todoBean));	
+			}	
 		}
-		
 		return layoutAllTodos;
 	}
 
@@ -74,7 +87,7 @@ public class Index implements ZCView {
 		layoutOneTache.setDirection(ZCFlowLayout.X_DIRECTION);
 		ZCStyle styleOfComponent = new ZCStyle();
 		styleOfComponent.setColor("black");
-		styleOfComponent.setWidth(200);
+		styleOfComponent.setWidth(100);
 
 		ZCLabel labelOfLogin = (ZCLabel) ZCComponentFactory
 				.newComponent(ZCLabel.class);
@@ -88,11 +101,22 @@ public class Index implements ZCView {
 		checkBoxTodo.setChecked(todoBean.isCompleted());
 		checkBoxTodo.setStyle(styleOfComponent);
 		
+		ZCButton deletButton = (ZCButton) ZCComponentFactory
+				.newComponent(ZCButton.class);
+		ZCStyle styleOfButton = new ZCStyle();
+		styleOfButton.setWidth(27);
+		styleOfButton.setColor("black");
+		
+	
+		deletButton.setText("X");
+		//deletButton.setAction("deleteTodo", this);
+		deletButton.setStyle(styleOfButton);
+		
 		layoutOneTache.addComponent(checkBoxTodo);
 		layoutOneTache.addComponent(labelOfLogin);
-		//layoutOneTache.addComponent(component);
+		layoutOneTache.addComponent(deletButton);
 		
-		return labelOfLogin;
+		return layoutOneTache;
 	}
 
 	private ZCLayout createZoneSaisi() throws Exception {
