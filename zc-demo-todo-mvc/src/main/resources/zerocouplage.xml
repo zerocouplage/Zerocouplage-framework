@@ -52,11 +52,21 @@
 		
 		<business name="allTodo" class="org.zerocouplage.tutorial.todomvc.action.TodoHandler"
 			method="filterForAllTodo">
+			
 			<view-results>
 				<view-result name="success" bean-result="allTodos"
 					ref-view="todoMVCView" />
 			</view-results>
 		</business>
+
+	<business name="deleteTodo"
+		class="org.zerocouplage.tutorial.todomvc.action.TodoHandler" method="deleteTodo">
+		<bean-ref ref-bean="TodoBean" />
+		<view-results>
+			<view-result name="success" bean-result="allTodos"
+				ref-view="todoMVCView" />
+		</view-results>
+	</business>
 		
 		<business name="actifTodo" class="org.zerocouplage.tutorial.todomvc.action.TodoHandler"
 			method="filterForActifTodo">

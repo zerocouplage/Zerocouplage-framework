@@ -20,11 +20,13 @@ public class TodoHandler {
 		
 		
 		ListTodos.getAllTodos().add(newTodo);
-		
+//		newTodo.setIndex(newTodo.getIndex());
+//		int a= newTodo.getIndex();
+//		newTodo.setIndex(a++);
 		listAllTodo = ListTodos.getAllTodos();
 		return "success";
 	}
-
+	
 	
 	public String filterForAllTodo()
 	{
@@ -59,11 +61,20 @@ public class TodoHandler {
 			}
 		}
 		return "success";
-	}
+	} 
 	
 	public String clearAllTodo()
 	{
-		ListTodos.getAllTodos().clear();
+		listAllTodo = new ArrayList<>();
+		for (TodoBean todoBean : ListTodos.getAllTodos())
+		{
+			if(todoBean.isCompleted())
+			{
+				listAllTodo.add(todoBean);
+			}
+		}
+		ListTodos.getAllTodos().removeAll(listAllTodo);
+	
 		return "success";
 	}
 
@@ -73,5 +84,14 @@ public class TodoHandler {
 	public List<TodoBean> getAllTodos() {
 		return listAllTodo;
 	}
+	
+	
+	public String deleteTodo(TodoBean newTodo) 
+	{
+		
+		ListTodos.getAllTodos().remove(0);
+		listAllTodo = ListTodos.getAllTodos();
+		return "success";
+		}
 
 }

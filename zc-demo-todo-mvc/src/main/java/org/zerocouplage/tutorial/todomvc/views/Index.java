@@ -3,6 +3,9 @@ package org.zerocouplage.tutorial.todomvc.views;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
+import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 
 import org.zerocouplage.common.exceptions.ZCExceptionConfig;
 import org.zerocouplage.component.api.component.ZCButton;
@@ -17,9 +20,13 @@ import org.zerocouplage.component.api.page.ZCPage;
 import org.zerocouplage.component.api.view.ZCView;
 import org.zerocouplage.component.common.ZCComponentFactory;
 import org.zerocouplage.component.impl.style.ZCStyle;
+import org.zerocouplage.tutorial.todomvc.action.TodoHandler;
 import org.zerocouplage.tutorial.todomvc.beans.TodoBean;
 
-public class Index implements ZCView {
+public class Index implements ZCView { 
+	
+	public ZCCheckBox checkBoxTodo;
+
 
 	ZCTextField tacheText = null;
 	private List<TodoBean> listAllTodo;
@@ -45,11 +52,8 @@ public class Index implements ZCView {
 		
 		layoutMain.addComponent(createZoneSaisi());
 		layoutMain.addComponent(displayAllTodo());
+		layoutMain.addComponent(displayFooter());
 		
-		if(this.listAllTodo != null && !this.listAllTodo.isEmpty())
-		{
-			layoutMain.addComponent(displayFooter());
-		}
 		
 		
 		page.setTitle("Bienvenue dans TODO MVC DEMO");
@@ -97,18 +101,25 @@ public class Index implements ZCView {
 				.newComponent(ZCFlowLayout.class);
 		layoutAllTodos.setDirection(ZCFlowLayout.Y_DIRECTION);
 		//layoutMain.setForm(true);
-		
+
 		if(listAllTodo != null)
 		{
 			int currentPosition = 0;
 			for (TodoBean todoBean : listAllTodo) 
 			{
+				todoBean.setIndex(currentPosition);
 				layoutAllTodos.addComponent(createLigneTodo(todoBean, currentPosition++));	
 			}	
 		}
 		return layoutAllTodos;
 	}
 
+	
+	/*
+	 * 
+	 * 
+	 * */
+	
 	private ZCComponent createLigneTodo(TodoBean todoBean, int currentPosition) throws Exception {
 
 		ZCFlowLayout layoutOneTache = (ZCFlowLayout) ZCComponentFactory
@@ -116,9 +127,14 @@ public class Index implements ZCView {
 		layoutOneTache.setDirection(ZCFlowLayout.X_DIRECTION);
 		
 		ZCStyle styleOfLabel = new ZCStyle();
-		styleOfLabel.setWidth(150);
+		styleOfLabel.setWidth(340);
 		if(todoBean.isCompleted())
 		{
+//			Font font = new Font("arial", Font.PLAIN, 12);
+//			Map fontAttr = font.getAttributes();
+//			fontAttr.put (TextAttribute.STRIKETHROUGH, TextAttribute.STRIKETHROUGH_ON);
+//			Font myFont = new Font(fontAttr);
+			
 			styleOfLabel.setColor("green");
 		}
 		else
@@ -132,11 +148,13 @@ public class Index implements ZCView {
 		labelOfTache.setLabel(todoBean.getTache());
 		labelOfTache.setStyle(styleOfLabel);
 		
-		ZCCheckBox checkBoxTodo = (ZCCheckBox) ZCComponentFactory
+		checkBoxTodo = (ZCCheckBox) ZCComponentFactory
 		.newComponent(ZCCheckBox.class);
 		
 		checkBoxTodo.setName("todo");
+		//todoBean.setCompleted(checkBoxTodo.isChecked());
 		checkBoxTodo.setChecked(todoBean.isCompleted());
+		 
 		
 		
 		
@@ -144,19 +162,21 @@ public class Index implements ZCView {
 		
 		ZCButton deletButton = (ZCButton) ZCComponentFactory
 				.newComponent(ZCButton.class);
+		
+		
 		ZCStyle styleOfButton = new ZCStyle();
 		styleOfButton.setWidth(27);
 		styleOfButton.setColor("black");
 		
-	
 		deletButton.setText("X");
-		//deletButton.setAction("deleteTodo", this);
+		deletButton.setAction("deleteTodo", this);
 		deletButton.setStyle(styleOfButton);
+		ActionListener actionListener;
 		
 		if(currentPosition % 2 == 0)
 		{
 			ZCStyle styleOfLayoutOneTache = new ZCStyle();
-			styleOfLayoutOneTache.setColor("red");
+			styleOfLayoutOneTache.setColor("#d5e1df");
 			layoutOneTache.setStyle(styleOfLayoutOneTache);
 		}
 		
@@ -179,7 +199,7 @@ public class Index implements ZCView {
 		
 		
 		ZCStyle styleOfTextField = new ZCStyle();
-		styleOfTextField.setWidth(200);
+		styleOfTextField.setWidth(310);
 		styleOfTextField.setColor("black");
 		
 		ZCStyle styleOfButton = new ZCStyle();
@@ -215,4 +235,5 @@ public class Index implements ZCView {
 	public void processError(HashMap<String, String> listError) {
 
 	}
+
 }
