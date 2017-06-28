@@ -43,7 +43,7 @@ public class ZCLinkDesktop extends ZCAbstractlink {
 				try {
 
 					IZCManager manager = ZCManagerFactory.getNewManager(thisClass);
-					manager.executeBusiness(actionName);
+					manager.executeBusiness(actionName, false, getName());
 				} catch (ClassNotFoundException e) {
 					
 					e.printStackTrace();

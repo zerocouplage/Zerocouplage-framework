@@ -330,4 +330,13 @@ public class ReflectManager {
 		return listClass;
 	}
 
+	public static boolean hasMethod(Class<?> cls, String methodName, Class<?> ... parameterTypes) throws SecurityException {
+		try {
+			cls.getMethod(methodName, parameterTypes);
+			return true;
+		} catch (NoSuchMethodException e) {
+			return false;
+		}
+	}
+
 }

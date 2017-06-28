@@ -31,7 +31,7 @@ public interface IZCManager {
 	 * @throws InstantiationException 
 	 * @throws ClassNotFoundException 
 	 */
-	public void executeBusiness(String businessName, boolean useSameViewInstance) throws InstantiationException, IllegalAccessException, ClassNotFoundException;
+	public void executeBusiness(String businessName, boolean useSameViewInstance, String zcSourceEventComponentId) throws InstantiationException, IllegalAccessException, ClassNotFoundException;
     
 	/**
 	 * <p>Returns a view instance from which a request come from.</p>

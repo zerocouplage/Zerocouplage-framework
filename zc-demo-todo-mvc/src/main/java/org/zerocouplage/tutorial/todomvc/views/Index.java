@@ -3,9 +3,6 @@ package org.zerocouplage.tutorial.todomvc.views;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
-import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
 
 import org.zerocouplage.common.exceptions.ZCExceptionConfig;
 import org.zerocouplage.component.api.component.ZCButton;
@@ -20,7 +17,6 @@ import org.zerocouplage.component.api.page.ZCPage;
 import org.zerocouplage.component.api.view.ZCView;
 import org.zerocouplage.component.common.ZCComponentFactory;
 import org.zerocouplage.component.impl.style.ZCStyle;
-import org.zerocouplage.tutorial.todomvc.action.TodoHandler;
 import org.zerocouplage.tutorial.todomvc.beans.TodoBean;
 
 public class Index implements ZCView { 
@@ -167,11 +163,10 @@ public class Index implements ZCView {
 		ZCStyle styleOfButton = new ZCStyle();
 		styleOfButton.setWidth(27);
 		styleOfButton.setColor("black");
-		
+		deletButton.setName(""+todoBean.getIndex());
 		deletButton.setText("X");
 		deletButton.setAction("deleteTodo", this);
 		deletButton.setStyle(styleOfButton);
-		ActionListener actionListener;
 		
 		if(currentPosition % 2 == 0)
 		{
@@ -214,7 +209,7 @@ public class Index implements ZCView {
 		addTodoButton.setStyle(styleOfButton);
 		
 		layoutAddTache.setDirection(ZCFlowLayout.X_DIRECTION); 
-		layoutAddTache.setForm(true);
+//		layoutAddTache.setForm(true);
 		
 		layoutAddTache.addComponent(tacheText);
 		layoutAddTache.addComponent(addTodoButton);

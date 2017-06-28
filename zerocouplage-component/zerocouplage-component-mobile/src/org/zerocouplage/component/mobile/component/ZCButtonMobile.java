@@ -45,7 +45,7 @@ public class ZCButtonMobile extends ZCAbstractButton {
 		{
 			public void onClick(View v) {
 				try {
-					manager.executeBusiness(actionName);
+					manager.executeBusiness(actionName, false, getName());
 				} catch (ClassNotFoundException e) {
 					logger.error("the business indicated in you're button's action is not found in the zerocouplage.xml");
 					

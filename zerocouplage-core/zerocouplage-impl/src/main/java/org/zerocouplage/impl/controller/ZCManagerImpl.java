@@ -85,11 +85,12 @@ public class ZCManagerImpl implements IZCManager {
 	@Override
 	public void executeBusiness(String businessName)
 			throws ClassNotFoundException {
-		executeBusiness(businessName, false);
+		executeBusiness(businessName, false, "");
 	}
 
+	
 	@Override
-	public void executeBusiness(String businessName, boolean useSameViewInstance)
+	public void executeBusiness(String businessName, boolean useSameViewInstance, String zcSourceEventComponentId)
 			throws ClassNotFoundException {
 
 		IZeroCouplageConfig zcConfig = ZeroCouplageConfigImpl.getInstance();
@@ -184,7 +185,17 @@ public class ZCManagerImpl implements IZCManager {
 		
 		if(isNotClientServeur)
 		{
+			
+			
+			
 			if (businessInstance != null) {
+				
+				if(ReflectManager.hasMethod(businessInstance.getClass(), "setIdSourceEvent", String.class))
+				{
+					ReflectManager.executeMethode(
+							businessInstance, "setIdSourceEvent",
+							zcSourceEventComponentId);
+				}
 				if (ReflectManager.getNbrOfParameter(businessInstance,
 						businessConfig.getMethodeName()) == 0) {
 					result = (String) ReflectManager.executeMethode(

@@ -6,6 +6,7 @@ import java.util.List;
 public class ListTodos {
 	
 	private static List<TodoBean> allTodos = new ArrayList<TodoBean>();
+	private static int sequenceID = 0;
 
 	public static List<TodoBean> getAllTodos() {
 		return allTodos;
@@ -15,6 +16,9 @@ public class ListTodos {
 		ListTodos.allTodos = allTodos;
 	}
 	
-	
+	public static int generateUniqueId(){
+		
+		return sequenceID++;
+	}
 
 }
