@@ -63,5 +63,18 @@ public interface ZCCheckBox extends ZCComponent {
 	 */
 
 	public void setChecked(boolean checked);
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public String getAction();
+
+	/**
+	 * 
+	 * @param a
+	 * @param thisClass
+	 */
+	public void setAction(String a, Object thisClass);
 
 }

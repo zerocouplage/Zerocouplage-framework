@@ -1,6 +1,8 @@
+<input type="checkbox"
 #if($checked=="true")
-<input type="checkbox" checked="checked" name="$name"><span  style="color: $color ; height: $height; width: $width;"> $text </span> 
-#end
-#if($checked=="false")
-<input type="checkbox" name="$name"> <span  style="color: $color ; height: $height; width: $width;">$text </span>
-#end
+   checked="checked" 
+#end 
+#if($action != "")
+   onClick="sendForm(this.form, '$action', '$name' );"  
+#end 
+  name="$name"><span  style="color: $color ; height: $height; width: $width;"> $text </span> 

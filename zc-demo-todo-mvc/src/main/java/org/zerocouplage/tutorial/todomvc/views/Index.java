@@ -42,7 +42,6 @@ public class Index implements ZCView {
 		
 		ZCStyle styleOfComponent = new ZCStyle();
 		styleOfComponent.setHeight(600);
-		//styleOfComponent.setColor("black");
 	    layoutMain.setStyle(styleOfComponent);
 		
 		
@@ -96,8 +95,6 @@ public class Index implements ZCView {
 		ZCFlowLayout layoutAllTodos = (ZCFlowLayout) ZCComponentFactory
 				.newComponent(ZCFlowLayout.class);
 		layoutAllTodos.setDirection(ZCFlowLayout.Y_DIRECTION);
-		//layoutMain.setForm(true);
-
 		if(listAllTodo != null)
 		{
 			int currentPosition = 0;
@@ -126,11 +123,6 @@ public class Index implements ZCView {
 		styleOfLabel.setWidth(340);
 		if(todoBean.isCompleted())
 		{
-//			Font font = new Font("arial", Font.PLAIN, 12);
-//			Map fontAttr = font.getAttributes();
-//			fontAttr.put (TextAttribute.STRIKETHROUGH, TextAttribute.STRIKETHROUGH_ON);
-//			Font myFont = new Font(fontAttr);
-			
 			styleOfLabel.setColor("green");
 		}
 		else
@@ -147,18 +139,12 @@ public class Index implements ZCView {
 		checkBoxTodo = (ZCCheckBox) ZCComponentFactory
 		.newComponent(ZCCheckBox.class);
 		
-		checkBoxTodo.setName("todo");
-		//todoBean.setCompleted(checkBoxTodo.isChecked());
+		checkBoxTodo.setName(""+todoBean.getIndex());
+		checkBoxTodo.setAction("changeEtatTodo", this);
 		checkBoxTodo.setChecked(todoBean.isCompleted());
-		 
-		
-		
-		
-		//checkBoxTodo.setStyle(styleOfComponent);
 		
 		ZCButton deletButton = (ZCButton) ZCComponentFactory
 				.newComponent(ZCButton.class);
-		
 		
 		ZCStyle styleOfButton = new ZCStyle();
 		styleOfButton.setWidth(27);
@@ -175,8 +161,6 @@ public class Index implements ZCView {
 			layoutOneTache.setStyle(styleOfLayoutOneTache);
 		}
 		
-		
-		
 		layoutOneTache.addComponent(checkBoxTodo);
 		layoutOneTache.addComponent(labelOfTache);
 		layoutOneTache.addComponent(deletButton);
@@ -191,7 +175,6 @@ public class Index implements ZCView {
 				.newComponent(ZCButton.class);
 	    tacheText = (ZCTextField) ZCComponentFactory
 				.newComponent(ZCTextField.class);
-		
 		
 		ZCStyle styleOfTextField = new ZCStyle();
 		styleOfTextField.setWidth(310);
@@ -209,8 +192,6 @@ public class Index implements ZCView {
 		addTodoButton.setStyle(styleOfButton);
 		
 		layoutAddTache.setDirection(ZCFlowLayout.X_DIRECTION); 
-//		layoutAddTache.setForm(true);
-		
 		layoutAddTache.addComponent(tacheText);
 		layoutAddTache.addComponent(addTodoButton);
 		

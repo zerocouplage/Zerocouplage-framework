@@ -13,7 +13,6 @@ public class TodoHandler {
 	private String idSourceEvent;
 
 	public String addTodo(TodoBean newTodo) {
-		newTodo.setCompleted((new Date().getTime() % 2) == 1);
 		newTodo.setIndex(ListTodos.generateUniqueId());
 		ListTodos.getAllTodos().add(newTodo);
 		listAllTodo = ListTodos.getAllTodos();
@@ -75,6 +74,22 @@ public class TodoHandler {
 		listAllTodo = ListTodos.getAllTodos();
 		return "success";
 	}
+	
+	public String changeEtatTodo() {
+
+		for (TodoBean todoBean : ListTodos.getAllTodos()) {
+			if (("" + todoBean.getIndex()).equals(this.idSourceEvent)) {
+				todoBean.setCompleted(!todoBean.isCompleted());
+				break;
+			}
+		}
+
+		listAllTodo = ListTodos.getAllTodos();
+		return "success";
+	}
+	
+	
+	
 
 	public String getIdSourceEvent() {
 		return idSourceEvent;

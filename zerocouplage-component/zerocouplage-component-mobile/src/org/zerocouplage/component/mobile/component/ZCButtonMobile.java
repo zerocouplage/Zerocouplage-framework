@@ -3,6 +3,7 @@ package org.zerocouplage.component.mobile.component;
 import org.zerocouplage.component.impl.component.ZCAbstractButton;
 import org.zerocouplage.component.impl.component.ZCAbstractComponent;
 import org.zerocouplage.component.mobile.page.ZCPageMobile;
+import org.zerocouplage.impl.controller.ZCManagerFactory;
 
 import android.content.Context;
 import android.view.View;
@@ -38,14 +39,14 @@ public class ZCButtonMobile extends ZCAbstractButton {
 	return button;
 	}
 
-	public void setAction(final String actionName, final IZCManager manager) {
+   public void setAction(final String actioName,final Object thisClass) {
 
-	
 		button.setOnClickListener(new OnClickListener()
 		{
 			public void onClick(View v) {
 				try {
-					manager.executeBusiness(actionName, false, getName());
+					IZCManager manager = ZCManagerFactory.getNewManager(thisClass);
+					manager.executeBusiness(actioName, false, getName());
 				} catch (ClassNotFoundException e) {
 					logger.error("the business indicated in you're button's action is not found in the zerocouplage.xml");
 					
@@ -58,23 +59,12 @@ public class ZCButtonMobile extends ZCAbstractButton {
 					logger.error("error illegalAccess");
 					e.printStackTrace();
 				}
-			          
 			}
-
-			
 		});
-	
-	
-		
 	}
 
-	public void setAction(String actioName,Object thisClass) {
-	
-		
+   public String getAction() {
+		return this.action;
 	}
 
-	public String getAction() {
-		
-		return null;
-	}
 }

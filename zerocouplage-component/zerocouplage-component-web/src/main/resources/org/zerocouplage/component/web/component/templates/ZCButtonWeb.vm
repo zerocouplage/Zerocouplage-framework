@@ -1,1 +1,6 @@
-<button name="zcComponentId" value="$name"  onClick="sendForm(this.form, $action );" style="color: $color ; height: $height; width: $width;">$text</button>
+<button name="$name"  
+#if($action != "")
+   onClick="sendForm(this.form, '$action', '$name' );"  
+#end 
+   style="color: $color ; height: $height; width: $width;">$text</button>
+   

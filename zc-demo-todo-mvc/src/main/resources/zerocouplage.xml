@@ -6,7 +6,7 @@
 
 
 <zcouplage DevModes="dev" context="web" appName="todoMVC">
-	
+
 	<virtualviews-package>
 		<virtualview class="org.zerocouplage.web.manager.ZCComponentVirtualWeb"
 			context="web" />
@@ -41,57 +41,64 @@
 			</view-results>
 		</business>
 
-		<business name="addNewTodo" class="org.zerocouplage.tutorial.todomvc.action.TodoHandler"
-			method="addTodo">
+		<business name="addNewTodo"
+			class="org.zerocouplage.tutorial.todomvc.action.TodoHandler" method="addTodo">
 			<bean-ref ref-bean="TodoBean" />
 			<view-results>
 				<view-result name="success" bean-result="allTodos"
 					ref-view="todoMVCView" />
 			</view-results>
 		</business>
-		
-		<business name="allTodo" class="org.zerocouplage.tutorial.todomvc.action.TodoHandler"
-			method="filterForAllTodo">
-			
+
+		<business name="allTodo"
+			class="org.zerocouplage.tutorial.todomvc.action.TodoHandler" method="filterForAllTodo">
+
 			<view-results>
 				<view-result name="success" bean-result="allTodos"
 					ref-view="todoMVCView" />
 			</view-results>
 		</business>
 
-	<business name="deleteTodo"
-		class="org.zerocouplage.tutorial.todomvc.action.TodoHandler" method="deleteTodo">
-		<bean-ref ref-bean="TodoBean" />
-		<view-results>
-			<view-result name="success" bean-result="allTodos"
-				ref-view="todoMVCView" />
-		</view-results>
-	</business>
-		
-		<business name="actifTodo" class="org.zerocouplage.tutorial.todomvc.action.TodoHandler"
-			method="filterForActifTodo">
+		<business name="changeEtatTodo"
+			class="org.zerocouplage.tutorial.todomvc.action.TodoHandler" method="changeEtatTodo">
 			<view-results>
 				<view-result name="success" bean-result="allTodos"
 					ref-view="todoMVCView" />
 			</view-results>
 		</business>
-		
-		<business name="completedTodo" class="org.zerocouplage.tutorial.todomvc.action.TodoHandler"
-			method="filterForCompletedTodo">
+
+		<business name="deleteTodo"
+			class="org.zerocouplage.tutorial.todomvc.action.TodoHandler" method="deleteTodo">
 			<view-results>
 				<view-result name="success" bean-result="allTodos"
 					ref-view="todoMVCView" />
 			</view-results>
 		</business>
-		
-		<business name="clearAllTodo" class="org.zerocouplage.tutorial.todomvc.action.TodoHandler"
-			method="clearAllTodo">
+
+		<business name="actifTodo"
+			class="org.zerocouplage.tutorial.todomvc.action.TodoHandler" method="filterForActifTodo">
 			<view-results>
 				<view-result name="success" bean-result="allTodos"
 					ref-view="todoMVCView" />
 			</view-results>
 		</business>
-		
+
+		<business name="completedTodo"
+			class="org.zerocouplage.tutorial.todomvc.action.TodoHandler" method="filterForCompletedTodo">
+			<view-results>
+				<view-result name="success" bean-result="allTodos"
+					ref-view="todoMVCView" />
+			</view-results>
+		</business>
+
+		<business name="clearAllTodo"
+			class="org.zerocouplage.tutorial.todomvc.action.TodoHandler" method="clearAllTodo">
+			<view-results>
+				<view-result name="success" bean-result="allTodos"
+					ref-view="todoMVCView" />
+			</view-results>
+		</business>
+
 	</business-package>
 
 	<!-- Views package -->
@@ -101,7 +108,7 @@
 		<view name="todoMVCView" method="display" methodError="processError"
 			beanIn="allTodos" target="org.zerocouplage.tutorial.todomvc.views.Index" />
 	</views-package>
-	
+
 	<!-- Add packages here -->
 
 </zcouplage>

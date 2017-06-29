@@ -1,5 +1,6 @@
 package org.zerocouplage.component.web.layout;
 
+import java.util.Date;
 import java.util.HashMap;
 
 import org.zerocouplage.component.api.component.ZCComponent;
@@ -24,8 +25,6 @@ public class ZCFlowLayoutWeb extends ZCAbstractFlowLayout {
 
 		mapOfDataComponent.put("component", getComponent());
 		mapOfDataComponent.put("flowObject", this);
-		mapOfDataComponent.put("nameForm", getName());
-		mapOfDataComponent.put("isForm", isForm());
 		mapOfDataComponent.put("ParentName", getParentName());
 		
 		if(getStyle().getColor()==null){
@@ -48,7 +47,14 @@ public class ZCFlowLayoutWeb extends ZCAbstractFlowLayout {
 			mapOfDataComponent.put("width", getStyle().getWidth());
 		}
 
-
+		if(getName() == null)
+		{
+			mapOfDataComponent.put("nameForm", new Date().getTime());
+		}else
+		{
+			mapOfDataComponent.put("nameForm", getName());
+		}
+		mapOfDataComponent.put("isForm", isForm());
 		return zcve.ZCEngine(this, mapOfDataComponent);
 
 	}

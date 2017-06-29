@@ -1,8 +1,9 @@
 <div style="background-color: $color ; height: $height; width: $width;" >
 #if($isForm=="true")
-<form name=$nameForm method="post" action="" >
+<form name='$nameForm' method="post" action="" >
 #end
-<input type="hidden" name="_ZC_SOURCE_VIEW_NAME" value="$ParentName">
+<input type="hidden" name="_ZC_SOURCE_VIEW_NAME" value="$ParentName" />
+<input id="zcComponentId_$nameForm" name="zcComponentId" value="" type="hidden" />
 <table border="0" >
 #set($Rows = $gridObject.getRows())
 #set($Cols = $gridObject.getCols())
