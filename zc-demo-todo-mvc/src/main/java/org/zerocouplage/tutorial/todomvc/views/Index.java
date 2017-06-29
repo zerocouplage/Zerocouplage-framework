@@ -157,7 +157,7 @@ public class Index implements ZCView {
 		if(currentPosition % 2 == 0)
 		{
 			ZCStyle styleOfLayoutOneTache = new ZCStyle();
-			styleOfLayoutOneTache.setColor("#d5e1df");
+			styleOfLayoutOneTache.setColor("#0000FF");
 			layoutOneTache.setStyle(styleOfLayoutOneTache);
 		}
 		
@@ -180,12 +180,14 @@ public class Index implements ZCView {
 		styleOfTextField.setWidth(310);
 		styleOfTextField.setColor("black");
 		
+		
 		ZCStyle styleOfButton = new ZCStyle();
 		styleOfButton.setWidth(50);
 		styleOfButton.setColor("black");
 		
 		tacheText.setName("tache");
 		tacheText.setStyle(styleOfTextField);
+		tacheText.setPlaceHolder("What needs to be done?");
 	
 		addTodoButton.setText("Add");
 		addTodoButton.setAction("addNewTodo", this);

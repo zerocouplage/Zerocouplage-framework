@@ -3,6 +3,7 @@ package org.zerocouplage.component.mobile.component;
 import org.zerocouplage.component.impl.component.ZCAbstractButton;
 import org.zerocouplage.component.impl.component.ZCAbstractComponent;
 import org.zerocouplage.component.mobile.page.ZCPageMobile;
+import org.zerocouplage.component.mobile.page.ZCSharedMobilePage;
 import org.zerocouplage.impl.controller.ZCManagerFactory;
 
 import android.content.Context;
@@ -29,10 +30,8 @@ public class ZCButtonMobile extends ZCAbstractButton {
 	private Button button;
 	public Object display(){
 		
-		Object parent = this.getParent();
-		while(! (parent instanceof ZCPageMobile)){
-			parent = ((ZCAbstractComponent) parent).getParent();
-		}
+		Context parent = ZCSharedMobilePage.getINSTANCE().getMainActivityForCurrentApp();
+
 	    	
 	button = new Button( (Context) parent);
 	button.setLayoutParams(new  LayoutParams(getStyle().getWidth(), getStyle().getHeight()));

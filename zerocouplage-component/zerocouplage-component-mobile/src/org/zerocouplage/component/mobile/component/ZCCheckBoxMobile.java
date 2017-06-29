@@ -6,6 +6,7 @@ import org.zerocouplage.common.logger.ZCLoggerFactory;
 import org.zerocouplage.component.impl.component.ZCAbstractCheckBox;
 import org.zerocouplage.component.impl.component.ZCAbstractComponent;
 import org.zerocouplage.component.mobile.page.ZCPageMobile;
+import org.zerocouplage.component.mobile.page.ZCSharedMobilePage;
 import org.zerocouplage.impl.controller.ZCManagerFactory;
 
 import android.content.Context;
@@ -27,10 +28,7 @@ public class ZCCheckBoxMobile extends ZCAbstractCheckBox {
 			.getLogger(ZCCheckBoxMobile.class);
 	private CheckBox checkBox;
 	public Object display() {
-		Object parent = this.getParent();
-		while (!(parent instanceof ZCPageMobile)) {
-			parent = ((ZCAbstractComponent) parent).getParent();
-		}
+		Context parent = ZCSharedMobilePage.getINSTANCE().getMainActivityForCurrentApp();
 
 		checkBox = new CheckBox((Context) parent);
 		checkBox.setText(getText());

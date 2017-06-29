@@ -6,6 +6,7 @@ import org.zerocouplage.component.api.component.ZCComboBoxItem;
 import org.zerocouplage.component.impl.component.ZCAbstractComboBox;
 import org.zerocouplage.component.impl.component.ZCAbstractComponent;
 import org.zerocouplage.component.mobile.page.ZCPageMobile;
+import org.zerocouplage.component.mobile.page.ZCSharedMobilePage;
 
 import android.content.Context;
 import android.widget.ArrayAdapter;
@@ -23,10 +24,8 @@ public class ZCComboboxMobile extends ZCAbstractComboBox {
 
 	@Override
 	public Object display() throws Exception {
-		Object parent = this.getParent();
-		while (!(parent instanceof ZCPageMobile)) {
-			parent = ((ZCAbstractComponent) parent).getParent();
-		}
+		Context parent = ZCSharedMobilePage.getINSTANCE().getMainActivityForCurrentApp();
+
 
 		spinner = new Spinner((Context) parent);
 		ArrayList<String> values = new ArrayList<String>() ;

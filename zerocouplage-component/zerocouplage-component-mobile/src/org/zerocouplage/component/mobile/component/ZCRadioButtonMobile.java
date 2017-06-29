@@ -5,6 +5,7 @@ import org.zerocouplage.component.impl.component.ZCAbstractComponent;
 import org.zerocouplage.component.impl.component.ZCAbstractRadioButton;
 import org.zerocouplage.component.mobile.page.ZCActivityMobile;
 import org.zerocouplage.component.mobile.page.ZCPageMobile;
+import org.zerocouplage.component.mobile.page.ZCSharedMobilePage;
 
 import android.app.Activity;
 import android.content.Context;
@@ -27,10 +28,7 @@ public class ZCRadioButtonMobile extends ZCAbstractRadioButton {
 
 	@Override
 	public Object display() {
-		Object parent = this.getParent();
-		while (!(parent instanceof ZCPageMobile)) {
-			parent = ((ZCAbstractComponent) parent).getParent();
-		}
+		Context parent = ZCSharedMobilePage.getINSTANCE().getMainActivityForCurrentApp();
 
 		zcradiobutton = new RadioButton((Context) parent);
 

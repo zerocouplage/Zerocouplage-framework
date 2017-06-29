@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import org.zerocouplage.component.impl.component.ZCAbstractComponent;
 import org.zerocouplage.component.impl.layout.ZCAbstractFlowLayout;
 import org.zerocouplage.component.mobile.page.ZCPageMobile;
+import org.zerocouplage.component.mobile.page.ZCSharedMobilePage;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -27,10 +28,9 @@ public class ZCFlowLayoutMobile extends ZCAbstractFlowLayout {
 	@Override
 	public Object display() throws Exception {
 
-		Object parent = this.getParent();
-		while (!(parent instanceof ZCPageMobile)) {
-			parent = ((ZCAbstractComponent) parent).getParent();
-		}
+		Context parent = ZCSharedMobilePage.getINSTANCE().getMainActivityForCurrentApp();
+
+
 		LinearLayout zcLayout = new LinearLayout((Context) parent);
 		LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
 				new LayoutParams(getStyle().getWidth(), getStyle().getHeight()));

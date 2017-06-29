@@ -4,6 +4,7 @@ import org.zerocouplage.component.impl.component.ZCAbstractComponent;
 import org.zerocouplage.component.impl.component.ZCAbstractTextField;
 import org.zerocouplage.component.mobile.page.ZCActivityMobile;
 import org.zerocouplage.component.mobile.page.ZCPageMobile;
+import org.zerocouplage.component.mobile.page.ZCSharedMobilePage;
 
 import android.app.Activity;
 import android.content.Context;
@@ -24,10 +25,8 @@ public class ZCTextFieldMobile extends ZCAbstractTextField {
 	private EditText zcTextField;
 
 	public Object display() {
-		Object parent = this.getParent();
-		while (!(parent instanceof ZCPageMobile)) {
-			parent = ((ZCAbstractComponent) parent).getParent();
-		}
+		Context parent = ZCSharedMobilePage.getINSTANCE().getMainActivityForCurrentApp();
+
 		zcTextField = new EditText((Context) parent);
 		zcTextField.setLayoutParams(new  LayoutParams(getStyle().getWidth(), getStyle().getHeight()));
 		zcTextField.setHint(getPlaceHolder());

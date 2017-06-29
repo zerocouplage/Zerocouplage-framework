@@ -3,6 +3,7 @@ package org.zerocouplage.component.mobile.layout;
 import org.zerocouplage.component.impl.component.ZCAbstractComponent;
 import org.zerocouplage.component.impl.layout.ZCAbstractGridLayout;
 import org.zerocouplage.component.mobile.page.ZCPageMobile;
+import org.zerocouplage.component.mobile.page.ZCSharedMobilePage;
 
 import android.content.Context;
 import android.view.ViewGroup.LayoutParams;
@@ -21,10 +22,8 @@ public class ZCGridLayoutMobile extends ZCAbstractGridLayout {
 	public Object display() {
 		
 	
-		Object parent = this.getParent();
-		while (!(parent instanceof ZCPageMobile)) {
-			parent = ((ZCAbstractComponent) parent).getParent();
-		}
+		Context parent = ZCSharedMobilePage.getINSTANCE().getMainActivityForCurrentApp();
+
 		
 		GridLayout gv = new GridLayout((Context) parent);
 		gv.setLayoutParams(
