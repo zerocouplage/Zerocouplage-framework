@@ -1,5 +1,6 @@
 package org.zerocouplage.impl.config;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
@@ -61,12 +62,27 @@ public class ZCLoaderConfigImpl implements IZCLoaderConfig {
 	private static IZCLogger logger = ZCLoggerFactory.getLogger(ZCLoaderConfigImpl.class);
 	
 	public ZCLoaderConfigImpl(String path) throws ZCExceptionConfig {
+		loaderConfigIXML(path, null);
+	}
+
+	public ZCLoaderConfigImpl(InputStream streamZCxml) throws ZCExceptionConfig {
+		loaderConfigIXML(null, streamZCxml);
+	}
+	
+	public void loaderConfigIXML(String path, InputStream streamZCxml) throws ZCExceptionConfig {
 		SAXBuilder sxb=new SAXBuilder();
 		InputStream path_Zerocouplage;
 		try {
 			
+			if(streamZCxml == null)
+			{
+				path_Zerocouplage = this.getClass().getClassLoader().getResourceAsStream(path);
+			}
+			else
+			{
+				path_Zerocouplage = streamZCxml;
+			}
 			
-			path_Zerocouplage = this.getClass().getClassLoader().getResourceAsStream(path);
 			if (path_Zerocouplage==null) {
 				throw new ZCExceptionConfig();
 				}
@@ -91,6 +107,9 @@ public class ZCLoaderConfigImpl implements IZCLoaderConfig {
 		appName = ZCracine.getAttributeValue(ZCTagLibs.appName);
 		DevModes = ZCracine.getAttributeValue(ZCTagLibs.DevModes);
 	};
+	
+	
+	
 
 	/**
 	 * @param args

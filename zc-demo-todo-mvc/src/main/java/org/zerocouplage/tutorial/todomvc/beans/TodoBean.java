@@ -26,7 +26,4 @@ public class TodoBean {
 	public void setCompleted(boolean isCompleted) {
 		this.isCompleted = isCompleted;
 	}
-	
-	
-
 }

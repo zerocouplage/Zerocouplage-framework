@@ -14,8 +14,15 @@ public class ZCMainDesktop {
 			InstantiationException, IllegalAccessException {
 
 		ZCMainDesktop ViewVide = new ZCMainDesktop();
+		Runnable runnable = new Runnable() {
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+				
+			}
+		};
 		//Initialization du JavaFx.
-		PlatformImpl.startup(() -> {});
+		PlatformImpl.startup(runnable );
 		IZCManager manager = ZCManagerFactory.getNewManager(ViewVide );
 		IZeroCouplageConfig zcConfig = ZeroCouplageConfigImpl.getInstance();
 		zcConfig.getLoaderConfig().setContext("desktop");

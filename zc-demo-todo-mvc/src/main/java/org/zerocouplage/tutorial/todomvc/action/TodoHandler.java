@@ -26,7 +26,7 @@ public class TodoHandler {
 	}
 
 	public String filterForActifTodo() {
-		listAllTodo = new ArrayList<>();
+		listAllTodo = new ArrayList<TodoBean>();
 		for (TodoBean todoBean : ListTodos.getAllTodos()) {
 			if (!todoBean.isCompleted()) {
 				listAllTodo.add(todoBean);
@@ -37,7 +37,7 @@ public class TodoHandler {
 
 	public String filterForCompletedTodo() {
 
-		listAllTodo = new ArrayList<>();
+		listAllTodo = new ArrayList<TodoBean>();
 		for (TodoBean todoBean : ListTodos.getAllTodos()) {
 			if (todoBean.isCompleted()) {
 				listAllTodo.add(todoBean);
@@ -47,7 +47,7 @@ public class TodoHandler {
 	}
 
 	public String clearAllTodo() {
-		listAllTodo = new ArrayList<>();
+		listAllTodo = new ArrayList<TodoBean>();
 		for (TodoBean todoBean : ListTodos.getAllTodos()) {
 			if (todoBean.isCompleted()) {
 				listAllTodo.add(todoBean);

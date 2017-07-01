@@ -63,7 +63,7 @@ public class ReflectManager {
 	public static Object executeMethodeByClassName(String className,
 			String methodeName) {
 		Object newInstance = creatInstanceByClassName(className);
-		return executeMethode(newInstance, methodeName, new Object[0]);
+		return executeMethode(newInstance, methodeName);
 	}
 
 	/**
@@ -115,11 +115,11 @@ public class ReflectManager {
 		try {
 			Method methode = null;
 			if (Arguments.length == 0) {
-				methode = instance.getClass().getDeclaredMethod(methodeName);
+				methode = instance.getClass().getMethod(methodeName);
 				result = methode.invoke(instance);
 			} else {
 				Class[] listClass = getListClassParam(instance, methodeName);
-				methode = instance.getClass().getDeclaredMethod(methodeName,
+				methode = instance.getClass().getMethod(methodeName,
 						listClass);
 				result = methode.invoke(instance, Arguments);
 
@@ -153,7 +153,24 @@ public class ReflectManager {
 	 * @return
 	 */
 	public static Object executeMethode(Object instance, String methodeName) {
-		return executeMethode(instance, methodeName, new Object[0]);
+		
+		Method methode;
+		Object result = null ;
+		try {
+			methode = instance.getClass().getMethod(methodeName);
+		    result = methode.invoke(instance);
+		} catch (NoSuchMethodException e) {
+			throw new RuntimeException(e.getMessage(), e);
+		} catch (IllegalAccessException e) {
+			throw new RuntimeException(e.getMessage(), e);
+		} catch (IllegalArgumentException e) {
+			throw new RuntimeException(e.getMessage(), e);
+		} catch (InvocationTargetException e) {
+			throw new RuntimeException(e.getMessage(), e);
+		}
+		
+		
+		return result;
 	}
 
 	/**

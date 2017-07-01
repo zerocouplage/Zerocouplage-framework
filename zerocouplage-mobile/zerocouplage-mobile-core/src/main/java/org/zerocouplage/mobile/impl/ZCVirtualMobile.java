@@ -1,6 +1,6 @@
 package org.zerocouplage.mobile.impl;
+       
 
-import java.io.Serializable;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
@@ -102,13 +102,18 @@ public class ZCVirtualMobile implements IZCVirtualView {
 
 	@Override
 	public String getViewName() {
-
-		IZeroCouplageConfig zcConfig = ZeroCouplageConfigImpl.getInstance();
 		IViewConfig viewConfig = null;
-		String className = viewInstance.getClass().getName();
-		viewConfig = zcConfig.getLoaderConfig().getViewConfigMap().getViewConfigByClassName(className);
-		viewName = viewConfig.getName();
-
+		IZeroCouplageConfig zcConfig = ZeroCouplageConfigImpl.getInstance();
+		if (this.viewInstance != null) {
+			viewConfig = zcConfig
+					.getLoaderConfig()
+					.getViewConfigMap()
+					.getViewConfigByClassName(
+							this.viewInstance.getClass().getCanonicalName());
+		}
+		if (viewConfig != null) {
+			viewName = viewConfig.getName();
+		}
 		return viewName;
 	}
 
@@ -150,8 +155,7 @@ public class ZCVirtualMobile implements IZCVirtualView {
 		try {
 			ZCSharedMobilePage.getINSTANCE().drawPage(currentPage);
 		} catch (Exception e) {
-			logger.error("cannot draw the current page ");
-			e.printStackTrace();
+			throw new RuntimeException("cannot draw the current page : "+e.getMessage(), e);
 		}
 
 	}

@@ -1,5 +1,7 @@
 package org.zerocouplage.impl.config;
 
+import java.io.InputStream;
+
 import org.zerocouplage.api.config.IZCLoaderConfig;
 import org.zerocouplage.api.config.IZeroCouplageConfig;
 import org.zerocouplage.common.constant.ZCTagLibs;
@@ -19,9 +21,26 @@ public class ZeroCouplageConfigImpl implements IZeroCouplageConfig {
 		this.loadConfigFromXML();
 	}
 
+	public ZeroCouplageConfigImpl(InputStream streamZCxml) {
+		
+		try {
+			loaderConfig = new ZCLoaderConfigImpl(streamZCxml);
+		} catch (ZCExceptionConfig e) {
+			e.printStackTrace();
+		}
+		this.loadConfigFromXML();
+	}
+
 	public static IZeroCouplageConfig getInstance() {
 		if (INSTANCE == null) {
 			INSTANCE = new ZeroCouplageConfigImpl();
+		}org.jdom2.ContentList
+		return INSTANCE;
+	}
+	
+	public static IZeroCouplageConfig getInstance(InputStream streamZCxml) {
+		if (INSTANCE == null) {
+			INSTANCE = new ZeroCouplageConfigImpl(streamZCxml);
 		}
 		return INSTANCE;
 	}

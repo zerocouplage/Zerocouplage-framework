@@ -42,13 +42,14 @@ public class Index implements ZCView {
 		
 		ZCStyle styleOfComponent = new ZCStyle();
 		styleOfComponent.setHeight(600);
+		styleOfComponent.setWidth(600);
 	    layoutMain.setStyle(styleOfComponent);
 		
 		
 		layoutMain.addComponent(createZoneSaisi());
 		layoutMain.addComponent(displayAllTodo());
 		layoutMain.addComponent(displayFooter());
-		
+//		
 		
 		
 		page.setTitle("Bienvenue dans TODO MVC DEMO");
@@ -106,12 +107,6 @@ public class Index implements ZCView {
 		}
 		return layoutAllTodos;
 	}
-
-	
-	/*
-	 * 
-	 * 
-	 * */
 	
 	private ZCComponent createLigneTodo(TodoBean todoBean, int currentPosition) throws Exception {
 
@@ -157,7 +152,7 @@ public class Index implements ZCView {
 		if(currentPosition % 2 == 0)
 		{
 			ZCStyle styleOfLayoutOneTache = new ZCStyle();
-			styleOfLayoutOneTache.setColor("#0000FF");
+			styleOfLayoutOneTache.setColor("#ECF0F1");
 			layoutOneTache.setStyle(styleOfLayoutOneTache);
 		}
 		
