@@ -30,8 +30,7 @@ public class ZCButtonWeb extends ZCAbstractButton {
 		if (getAction() == null) {
 			mapOfDataComponent.put("action", "");
 		} else {
-			
-			mapOfDataComponent.put("action", "'"+getAction()+"'");
+			mapOfDataComponent.put("action", getAction());
 		}
 
 		if (getName() == null) {

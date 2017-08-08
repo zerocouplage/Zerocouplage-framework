@@ -4,9 +4,10 @@
 		$title
 		</title>
 		 <script>
-    function sendForm(form,dist){
+    function sendForm(form, dist, sourceEventId){
     var formname = form.name;
 	document.getElementsByName(formname)[0].setAttribute("action",dist);
+	document.getElementById('zcComponentId_'+formname).value=sourceEventId;
 	document.forms[formname].submit();
     }
         </script>

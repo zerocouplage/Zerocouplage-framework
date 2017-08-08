@@ -52,9 +52,20 @@ public class ZCCheckBoxWeb extends ZCAbstractCheckBox {
 		} else {
 			mapOfDataComponent.put("checked", "false");
 		}
-
+		if (getAction() == null) {
+			mapOfDataComponent.put("action", "");
+		} else {
+			mapOfDataComponent.put("action", getAction());
+		}
 		return zcve.ZCEngine(this, mapOfDataComponent);
 
 	}
 
+	public String getAction() {
+		return action;
+	}
+
+	public void setAction(String a, Object thisClass) {
+		this.action = a + ".zc";
+	}
 }

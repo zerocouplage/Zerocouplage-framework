@@ -75,8 +75,8 @@ public class ZCManagerWeb implements IZCVirtualView, Filter {
 			e1.printStackTrace();
 		}
 		try {
-
-			manager.executeBusiness(businessName);
+			String  zcSourceEventComponentId = (String) req.getParameter("zcComponentId");
+			manager.executeBusiness(businessName, false, zcSourceEventComponentId);
 		} catch (ClassNotFoundException e) {
 			logger.error("the businessName resultView that you've indacate in zerocouplage.xml is not found");
 			e.printStackTrace();

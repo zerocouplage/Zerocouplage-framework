@@ -1,5 +1,6 @@
 package org.zerocouplage.component.web.layout;
 
+import java.util.Date;
 import java.util.HashMap;
 
 import org.zerocouplage.component.impl.enginevm.ZCEngineVelocity;
@@ -21,8 +22,6 @@ public class ZCGridLayoutWeb extends ZCAbstractGridLayout {
 
 		mapOfDataComponent.put("component", getComponent());
 
-		mapOfDataComponent.put("nameForm", getName());
-		mapOfDataComponent.put("isForm", isForm());
 		mapOfDataComponent.put("gridObject", this);
 
 		mapOfDataComponent.put("ParentName", getParentName());
@@ -43,7 +42,14 @@ public class ZCGridLayoutWeb extends ZCAbstractGridLayout {
 		} else {
 			mapOfDataComponent.put("width", getStyle().getWidth());
 		}
-
+		if(getName() == null)
+		{
+			mapOfDataComponent.put("nameForm", new Date().getTime());
+		}else
+		{
+			mapOfDataComponent.put("nameForm", getName());
+		}
+		mapOfDataComponent.put("isForm", isForm());
 		return zcve.ZCEngine(this, mapOfDataComponent);
 
 	}

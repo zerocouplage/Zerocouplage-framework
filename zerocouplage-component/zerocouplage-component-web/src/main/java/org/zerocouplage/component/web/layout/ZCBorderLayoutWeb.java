@@ -1,5 +1,6 @@
 package org.zerocouplage.component.web.layout;
 
+import java.util.Date;
 import java.util.HashMap;
 
 import org.zerocouplage.component.impl.enginevm.ZCEngineVelocity;
@@ -45,7 +46,14 @@ public class ZCBorderLayoutWeb extends ZCAbstractBorderLayout {
 			else{
 				mapOfDataComponent.put("width", getStyle().getWidth());
 			}
-
+			if(getName() == null)
+			{
+				mapOfDataComponent.put("nameForm", new Date().getTime());
+			}else
+			{
+				mapOfDataComponent.put("nameForm", getName());
+			}
+			mapOfDataComponent.put("isForm", isForm());
 		 
 		 
 		return zcve.ZCEngine(this, mapOfDataComponent);

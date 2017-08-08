@@ -127,12 +127,12 @@ public class ZCVirtualDesktop implements IZCVirtualView {
 	@Override
 	public void goToPage(String pageName, String beanName, Object beanValue,
 			boolean useSameViewInstance) {
+		
 		IZeroCouplageConfig zcConfig = ZeroCouplageConfigImpl.getInstance();
 
-		IViewConfig resultView = zcConfig.getLoaderConfig().getViewConfigMap()
-				.getViewConfigByName(pageName);
-		String target = resultView.getTargetName();
-		
+		IViewConfig resultViewConfig = zcConfig.getLoaderConfig().getViewConfigMap().getViewConfigByName(pageName);
+		String target = resultViewConfig.getTargetName();
+
 		Object instanceView = null;
 		if (useSameViewInstance) {
 			instanceView = this.viewInstance;
@@ -141,58 +141,93 @@ public class ZCVirtualDesktop implements IZCVirtualView {
 		}
 
 		// Passage des parametres au view pageName (instanceView)
-		if (resultView.getBeanInName() != null && !resultView.getBeanInName().isEmpty()) {
-			
-			String setterBeanNameMethode = StringTools.createSetter(resultView.getBeanInName());
+		if (resultViewConfig.getBeanInName() != null && !resultViewConfig.getBeanInName().isEmpty()) {
+
+			String setterBeanNameMethode = StringTools.createSetter(resultViewConfig.getBeanInName());
 			ReflectManager.executeMethode(instanceView, setterBeanNameMethode, beanValue);
 		}
-		
+
+		Object page = ReflectManager.executeMethode(instanceView, resultViewConfig.getMethodeName());
+		ZCPage currentPage = null;
+		if (ZCPage.class.isInstance(page)) {
+			currentPage = (ZCPage) page;
+		} else {
+			throw new RuntimeException("problem while running a methode or a constructor");
+		}
+
 		try {
-			//TODO : faire la meme chose que mobile
-			if (ReflectManager.getNbrOfParameter(instanceView,
-					resultView.getMethodeName()) == 0) {
+			ZCSharedPage.getINSTANCE().drawPage(currentPage);
+		} catch (Exception e) {
 
-				
-				Object page = ReflectManager.executeMethode(instanceView, resultView.getMethodeName());
-				ZCPage currentPage = null;
-				if (ZCPage.class.isInstance(page)) {
-					currentPage = (ZCPage) page;
-				} else {
-					throw new RuntimeException(
-							"problem while running a methode or a constructor");
-				}
-
-				try {
-					ZCSharedPage.getINSTANCE().drawPage(currentPage);
-				} catch (Exception e) {
-					logger.error("cannot draw the current page ");
-					e.printStackTrace();
-				}
-
-			} else {
-
-				Object page = ReflectManager.executeMethodeByClassName(target,
-						resultView.getMethodeName(), beanValue);
-				ZCPage currentPage = null;
-				if (ZCPage.class.isInstance(page)) {
-					currentPage = (ZCPage) page;
-				} else {
-					throw new RuntimeException(
-							"problem while running a methode or a constructor");
-				}
-
-				try {
-					ZCSharedPage.getINSTANCE().drawPage(currentPage);
-				} catch (Exception e) {
-					
-					e.printStackTrace();
-				}
-
-			}
-		} catch (ClassNotFoundException e) {
-			logger.error("cannot find the classe that you are reffering to in zerocouplage.xml");
 			e.printStackTrace();
 		}
+		
+//		IZeroCouplageConfig zcConfig = ZeroCouplageConfigImpl.getInstance();
+//
+//		IViewConfig resultView = zcConfig.getLoaderConfig().getViewConfigMap()
+//				.getViewConfigByName(pageName);
+//		String target = resultView.getTargetName();
+//		
+//		Object instanceView = null;
+//		if (useSameViewInstance) {
+//			instanceView = this.viewInstance;
+//		} else {
+//			instanceView = ReflectManager.creatInstanceByClassName(target);
+//		}
+//
+//		// Passage des parametres au view pageName (instanceView)
+//		if (resultView.getBeanInName() != null && !resultView.getBeanInName().isEmpty()) {
+//			
+//			String setterBeanNameMethode = StringTools.createSetter(resultView.getBeanInName());
+//			ReflectManager.executeMethode(instanceView, setterBeanNameMethode, beanValue);
+//		}
+//		
+//		try {
+//			//TODO : faire la meme chose que mobile
+//			if (ReflectManager.getNbrOfParameter(instanceView,
+//					resultView.getMethodeName()) == 0) {
+//
+//				
+//				Object page = ReflectManager.executeMethode(instanceView, resultView.getMethodeName());
+//				ZCPage currentPage = null;
+//				if (ZCPage.class.isInstance(page)) {
+//					currentPage = (ZCPage) page;
+//				} else {
+//					throw new RuntimeException(
+//							"problem while running a methode or a constructor");
+//				}
+//
+//				try {
+//					ZCSharedPage.getINSTANCE().drawPage(currentPage);
+//				} catch (Exception e) {
+//					logger.error("cannot draw the current page ");
+//					e.printStackTrace();
+//				}
+//
+//			} else {
+//
+//				Object page = ReflectManager.executeMethodeByClassName(target,
+//						resultView.getMethodeName(), beanValue);
+//				ZCPage currentPage = null;
+//				if (ZCPage.class.isInstance(page)) {
+//					currentPage = (ZCPage) page;
+//				} else {
+//					throw new RuntimeException(
+//							"problem while running a methode or a constructor");
+//				}
+//
+//				try {
+//					ZCSharedPage.getINSTANCE().drawPage(currentPage);
+//				} catch (Exception e) {
+//					
+//					e.printStackTrace();
+//				}
+//
+//			}
+//		} catch (ClassNotFoundException e) {
+//			logger.error("cannot find the classe that you are reffering to in zerocouplage.xml");
+//			e.printStackTrace();
+//		}
 
 
 	}

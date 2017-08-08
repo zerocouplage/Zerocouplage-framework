@@ -48,15 +48,15 @@ public class ZCButtonDesktop extends ZCAbstractButton {
 				try {
 
 					IZCManager manager = ZCManagerFactory.getNewManager(thisClass);
-					manager.executeBusiness(actionName);
+					manager.executeBusiness(actionName, false, getName());
 				} catch (ClassNotFoundException e) {
-					logger.error("the business indicated in you're button's action is not found in the zerocouplage.xml");
+					logger.error("the business indicated in you're button's action is not found in the zerocouplage.xml", e);
 					e.printStackTrace();
 				} catch (InstantiationException e) {
-					logger.error("error while instanciating the class");
+					logger.error("error while instanciating the class", e);
 					e.printStackTrace();
 				} catch (IllegalAccessException e) {
-					logger.error("error illegalAccess");
+					logger.error("error illegalAccess", e);
 					e.printStackTrace();
 				}
 			}

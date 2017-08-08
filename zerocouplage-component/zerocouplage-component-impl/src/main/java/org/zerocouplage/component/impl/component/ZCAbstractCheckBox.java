@@ -14,6 +14,7 @@ import org.zerocouplage.component.api.component.ZCCheckBox;
 public abstract class ZCAbstractCheckBox extends ZCAbstractComponent implements
 		ZCCheckBox {
 
+	protected String action;
 	private String name;
 	private String text;
 	private boolean checked = false;
