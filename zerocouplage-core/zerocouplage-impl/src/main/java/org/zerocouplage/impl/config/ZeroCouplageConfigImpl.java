@@ -22,7 +22,7 @@ public class ZeroCouplageConfigImpl implements IZeroCouplageConfig {
 	}
 
 	public ZeroCouplageConfigImpl(InputStream streamZCxml) {
-		
+
 		try {
 			loaderConfig = new ZCLoaderConfigImpl(streamZCxml);
 		} catch (ZCExceptionConfig e) {
@@ -34,10 +34,10 @@ public class ZeroCouplageConfigImpl implements IZeroCouplageConfig {
 	public static IZeroCouplageConfig getInstance() {
 		if (INSTANCE == null) {
 			INSTANCE = new ZeroCouplageConfigImpl();
-		}org.jdom2.ContentList
+		}
 		return INSTANCE;
 	}
-	
+
 	public static IZeroCouplageConfig getInstance(InputStream streamZCxml) {
 		if (INSTANCE == null) {
 			INSTANCE = new ZeroCouplageConfigImpl(streamZCxml);
@@ -54,7 +54,7 @@ public class ZeroCouplageConfigImpl implements IZeroCouplageConfig {
 		loaderConfig.loaderViewConfigMap();
 		loaderConfig.loaderBusinessConfigMap();
 		loaderConfig.loaderVirtualViewConfigMap();
-	    
+
 	}
 
 	@Override

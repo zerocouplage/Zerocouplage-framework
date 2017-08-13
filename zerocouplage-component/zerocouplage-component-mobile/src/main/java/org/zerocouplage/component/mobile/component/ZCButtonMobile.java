@@ -1,20 +1,18 @@
 package org.zerocouplage.component.mobile.component;
 
+import org.zerocouplage.api.controller.IZCManager;
+import org.zerocouplage.api.logger.IZCLogger;
+import org.zerocouplage.common.logger.ZCLoggerFactory;
 import org.zerocouplage.component.impl.component.ZCAbstractButton;
-import org.zerocouplage.component.impl.component.ZCAbstractComponent;
-import org.zerocouplage.component.mobile.page.ZCPageMobile;
 import org.zerocouplage.component.mobile.page.ZCSharedMobilePage;
 import org.zerocouplage.impl.controller.ZCManagerFactory;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.Button;
-
-import org.zerocouplage.api.controller.IZCManager;
-import org.zerocouplage.api.logger.IZCLogger;
-import org.zerocouplage.common.logger.ZCLoggerFactory;
 
 /**
  * <p>
@@ -34,7 +32,21 @@ public class ZCButtonMobile extends ZCAbstractButton {
 		button = new Button(parent);
 	}
 	public Object display() {
-		button.setLayoutParams(new LayoutParams(getStyle().getWidth(), getStyle().getHeight()));
+		
+		LayoutParams layoutParams = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+		button.setLayoutParams(layoutParams);
+		
+		if (getStyle() != null) {
+			if (getStyle().getWidth() != 0) {
+				layoutParams.width = getStyle().getWidth();
+			}
+			if (getStyle().getHeight() != 0) {
+				layoutParams.height = getStyle().getHeight();
+			}
+			if (getStyle().getColor() != null) {
+				button.setBackgroundColor(Color.parseColor(getStyle().getColor()));
+			}
+		}
 		button.setText(getText());
 		return button;
 	}
@@ -65,6 +77,14 @@ public class ZCButtonMobile extends ZCAbstractButton {
 
 	public String getAction() {
 		return this.action;
+	}
+	
+	public String getText() {
+		return button.getText().toString();
+	}
+	
+	public void setText(String text) {
+		button.setText(text);
 	}
 
 }
