@@ -40,15 +40,26 @@ public class Index implements ZCView {
 		layoutMain.setDirection(ZCFlowLayout.Y_DIRECTION);
 		layoutMain.setForm(true);
 		
-		ZCStyle styleOfComponent = new ZCStyle();
-		styleOfComponent.setHeight(600);
-		styleOfComponent.setWidth(600);
-	    layoutMain.setStyle(styleOfComponent);
+//		ZCStyle styleOfLabel = new ZCStyle();
+//		styleOfLabel.setWidth(340);
+//		styleOfLabel.setHeight(100);
+//		styleOfLabel.setColor("blue");
+//		ZCTextField labelOfTache = (ZCTextField) ZCComponentFactory
+//				.newComponent(ZCTextField.class);
+//		labelOfTache.setText("Hello word !");
+//		labelOfTache.setStyle(styleOfLabel);
+//		
+//		layoutMain.addComponent(labelOfTache);
 		
-		
+//		ZCStyle styleOfComponent = new ZCStyle();
+//		styleOfComponent.setHeight(600);
+//		styleOfComponent.setWidth(600);
+//	    layoutMain.setStyle(styleOfComponent);
+//		
+//		
 		layoutMain.addComponent(createZoneSaisi());
-		layoutMain.addComponent(displayAllTodo());
-		layoutMain.addComponent(displayFooter());
+//		layoutMain.addComponent(displayAllTodo());
+//		layoutMain.addComponent(displayFooter());
 //		
 		
 		

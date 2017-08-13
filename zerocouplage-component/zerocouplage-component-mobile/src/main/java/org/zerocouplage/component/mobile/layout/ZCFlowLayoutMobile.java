@@ -25,7 +25,6 @@ import android.widget.LinearLayout;
  */
 public class ZCFlowLayoutMobile extends ZCAbstractFlowLayout {
 
-	@SuppressLint("NewApi")
 	@Override
 	public Object display() throws Exception {
 
@@ -33,10 +32,9 @@ public class ZCFlowLayoutMobile extends ZCAbstractFlowLayout {
 
 		LinearLayout linearLayout = new LinearLayout((Context) parent);
 		LayoutParams layoutParams = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
-
+		linearLayout.setLayoutParams(layoutParams);
 		
 		if (getStyle() != null) {
-			linearLayout.setLayoutParams(layoutParams);
 			if (getStyle().getWidth() != 0) {
 				layoutParams.width = getStyle().getWidth();
 			}
@@ -57,16 +55,6 @@ public class ZCFlowLayoutMobile extends ZCAbstractFlowLayout {
 		for (ZCComponent currentComponent : getComponent()) {
 			linearLayout.addView((View) currentComponent.display());
 		}
-
-		// while (count <= getComponent().size()) {
-		//
-		// linearLayout.addView(child);
-		// v = linearLayout.getChildAt(count);
-		// linearLayout.getChildAt(count).addChildrenForAccessibility(
-		// (ArrayList<View>) getComponent().get(count).display());
-		//
-		//
-		// }
 
 		return linearLayout;
 	}

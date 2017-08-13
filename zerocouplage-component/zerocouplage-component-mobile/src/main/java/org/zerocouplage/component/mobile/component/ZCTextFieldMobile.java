@@ -1,15 +1,10 @@
 package org.zerocouplage.component.mobile.component;
 
-import org.zerocouplage.component.impl.component.ZCAbstractComponent;
 import org.zerocouplage.component.impl.component.ZCAbstractTextField;
-import org.zerocouplage.component.mobile.page.ZCActivityMobile;
-import org.zerocouplage.component.mobile.page.ZCPageMobile;
 import org.zerocouplage.component.mobile.page.ZCSharedMobilePage;
 
-import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
-import android.os.Bundle;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.EditText;
 
@@ -24,11 +19,15 @@ import android.widget.EditText;
 public class ZCTextFieldMobile extends ZCAbstractTextField {
 
 	private EditText zcTextField;
+	
+	public ZCTextFieldMobile()
+	{
+		Context parent = ZCSharedMobilePage.getINSTANCE().getMainActivityForCurrentApp();
+		zcTextField = new EditText((Context) parent);
+	}
 
 	public Object display() {
-		Context parent = ZCSharedMobilePage.getINSTANCE().getMainActivityForCurrentApp();
-
-		zcTextField = new EditText((Context) parent);
+		
 		
 		LayoutParams layoutParams = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
 
@@ -42,12 +41,20 @@ public class ZCTextFieldMobile extends ZCAbstractTextField {
 				layoutParams.height = getStyle().getHeight();
 			}
 			if (getStyle().getColor() != null) {
-				zcTextField.setBackgroundColor(Color.parseColor(getStyle().getColor()));
+				zcTextField.setTextColor(Color.parseColor(getStyle().getColor()));
 			}
 		}
 		
-		zcTextField.setLayoutParams(new  LayoutParams(getStyle().getWidth(), getStyle().getHeight()));
+		zcTextField.setLayoutParams(layoutParams);
 		zcTextField.setHint(getPlaceHolder());
 		return zcTextField;
+	}
+	
+	public String getText() {
+		return zcTextField.getText().toString();
+	}
+	
+	public void setText(String text) {
+		zcTextField.setText(text);
 	}
 }

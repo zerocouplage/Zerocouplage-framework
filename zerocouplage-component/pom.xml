@@ -15,7 +15,7 @@
 		<module>zerocouplage-component-common</module>
 		<module>zerocouplage-component-impl</module>
 		<module>zerocouplage-component-desktop</module>
-<!-- 		<module>zerocouplage-component-mobile</module> -->
+		<module>zerocouplage-component-mobile</module>
 		<module>zerocouplage-component-web</module>
 	</modules>
 	<properties>
