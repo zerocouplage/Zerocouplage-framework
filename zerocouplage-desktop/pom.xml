@@ -11,7 +11,6 @@
 
 	<modules>
 		<module>zerocouplage-desktop-core</module>
-		<module>zerocouplage-test-desktop</module>
 	</modules>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

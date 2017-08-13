@@ -9,7 +9,6 @@
 	
 	<modules>
 		<module>zerocouplage-mobile-core</module>
-<!-- 		<module>zerocouplage-test-mobile</module> -->
  	</modules>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
